@@ -3,6 +3,6 @@ FactoryGirl.define do
     created_at "created_at"
     updated_at "updated_at"
     status "Paid"
-    association :author, factory: :user, id: 1
+    association :user, factory: :user, id: 1
   end
 end
