@@ -15,6 +15,8 @@ On spec use "Within '/.class/'" whenever possible
   We will shovel bootstrap classes on.
 Edit sample data on Data-branch
 Touch base before touching foreign files
+All buttons, links, etc. lower-case only
+Styling we do upcase for those
 
 Branch naming:
 015_user_can_login_master
