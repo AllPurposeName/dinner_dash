@@ -15,7 +15,7 @@
 
 006 The photo is option. If not present, a stand-in photo is used.
 
-007 EXAMPLE DATA At least 20 items with varying prices. Some should have multiple categories
+007 EXAMPLE ITEM DATA At least 20 items with varying prices. Some should have multiple categories
 
 ## USER
 
@@ -25,7 +25,7 @@
 
 010 A user may optionally provide a display name which must be 2-32 characters
 
-011 EXAMPLE DATA
+011 EXAMPLE USER DATA generate 20 users with valid fields
 
 ## ORDER
 
@@ -33,11 +33,11 @@
 
 013 An order must be for one or more items being sold
 
-014 EXAMPLE DATA At least 10 orders with at least 2 at each stage (ordered, completed, cancelled)
+014 EXAMPLE ORDER DATA At least 10 orders with at least 2 at each stage (ordered, completed, cancelled)
 
 ## CATEGORIES
 
-015 EXAMPLE DATA At least 5 categories of various sizes
+015 EXAMPLE CATEGORY DATA At least 5 categories of various sizes
 
 ######################################################
 
