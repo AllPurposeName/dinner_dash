@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe 'guest can use a cart'
+describe 'guest can use a cart' do
   context 'adding to the cart' do
     it 'adds cats to the cart' do
     end
