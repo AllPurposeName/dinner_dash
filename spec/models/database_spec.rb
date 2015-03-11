@@ -56,64 +56,68 @@ describe "Database exists and" do
     end
   end
 
-  context "has OrderItems that" do
+  context "has Ordercats that" do
 
-    let(:example_order_item) { create(:order_item) }
+    let(:example_order_cat) { create(:order_cat) }
 
     it "belongs to an Order" do
-      expect(example_order_item.order).to eq(Order.find(example_order_item.order_id)
+      expect(example_order_cat.order).to eq(Order.find(example_order_cat.order_id)
     end
 
-    it "belongs to an Item" do
-      expect(example_order_item.item).to eq(Item.find(example_order_item.item_id)
+    it "belongs to an cat" do
+      expect(example_order_cat.cat).to eq(cat.find(example_order_cat.cat_id)
     end
   end
 
-  context "has Items that" do
+  context "has cats that" do
 
-    let(:example_item) { create(:item) }
-    let(:retired_item) { create(:retired_item) }
+    let(:example_cat) { create(:cat) }
+    let(:retired_cat) { create(:retired_cat) }
+
+    describe cat do
+      it { should validate_uniqueness_of(:name)}
+    end
 
     it "has a name" do
-      item = build(:item, title: "")
-      expect(item).to_not be_valid
-      expect(example_item.name).to eq("item name")
+      cat = build(:cat, title: "")
+      expect(cat).to_not be_valid
+      expect(example_cat.name).to eq("cat name")
     end
 
     it "has a description" do
-      item = build(:item, description: "")
-      expect(item).to_not be_valid
-      expect(example_item.description).to eq("example description")
+      cat = build(:cat, description: "")
+      expect(cat).to_not be_valid
+      expect(example_cat.description).to eq("example description")
     end
 
     it "has a price" do
-      expect(example_item.price).to eq("20.00")
+      expect(example_cat.price).to eq("20.00")
     end
 
     it "is retired or not" do
-      expect(example_item.retired?).to eq(false)
-      expect(retired_item.retired?).to eq(true)
+      expect(example_cat.retired?).to eq(false)
+      expect(retired_cat.retired?).to eq(true)
     end
 
     it "has an image_path" do
-      expect(example_item.item_path).to eq("IDK")
+      expect(example_cat.cat_path).to eq("IDK")
     end
 
     it "belongs to at least one breed" do
-      example_item.breeds.count.should > 0
+      example_cat.breeds.count.should > 0
     end
   end
 
-  context "has Item breeds that" do
+  context "has cat breeds that" do
 
-    let(:an_item_breed) { create(:item_breed) }
+    let(:an_cat_breed) { create(:cat_breed) }
 
-    it "belongs to an Item" do
-      expect(an_item_breed.item).to eq(Item.find(an_item_breed.item_id)
+    it "belongs to an cat" do
+      expect(an_cat_breed.cat).to eq(cat.find(an_cat_breed.cat_id)
     end
 
     it "belongs to a breed" do
-      expect(an_item_breed.breed).to eq(breed.find(an_item_breed.item_id)
+      expect(an_cat_breed.breed).to eq(breed.find(an_cat_breed.cat_id)
     end
   end
 
