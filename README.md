@@ -1,6 +1,6 @@
 Benchmark Timeline:
 
-Wednesday: Data began-complete
+Wednesday: Data began-complete waffle setup
 Thursday: Login/Cats/Cart began
 Saturday: Login/Cats/Cart complete | Admin Order began
 Tuesday: Admin Order complete | Restrictions began
