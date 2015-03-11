@@ -188,6 +188,13 @@ Then I should see the dashboard
 
 As a Guest
 When I visit '/cart'
+And I click the "continue" button
+Then I am redirected to the previous page I was on
+and if I weren't on a valid page(dashboard, breeds, cats)
+Then I am redirected to the dashboard
+
+As a Guest
+When I visit '/cart'
 And I click the "order history" button
 Then I am prompted to login at the login page
 
@@ -211,4 +218,113 @@ When I visit any location not listed previously
 Then I am redirected to dashboard with no flash message
 
 ## USER
-As a User
+
+As an authenticated User
+When I visit '/user/myid/orders'
+Then I am not prompted to login and I see my order list.
+
+As an authenticated User
+When I click any "add to cart" button
+Then I am redirected to '/cart' with my newest order displayed
+
+As an authenticated User
+When I visit any location not listed previously
+Then I am redirected to dashboard with no flash message
+
+## ADMIN
+
+As an Admin
+When I visit '/admin'
+Then I am redirected to '/admin/inventory'
+And I see a list of breeds and a list of cats
+
+As an Admin
+When I visit '/admin/inventory'
+And I click on an "edit-#{breed.name}" button
+Then I am redirected to '/admin/breeds/:id/edit'
+And I see information for updating that particular breed
+
+As an Admin
+When I visit '/admin/breeds/:id/edit'
+And I fill in the name field
+And I fill in the description field
+And I click the "save" button
+Then I am redirected to that breed's page
+And I see the edited breed with it's new name and description
+
+As an Admin
+When I visit '/admin/breeds/:id/edit'
+And I fill in the image field
+And I click the "save" button
+Then I am redirected to that breed's page
+And I see the edited breed with it's new image in the carosel
+
+As an Admin
+When I visit '/admin/breeds/:id/edit'
+And I click the retire button
+Then I am redirected to the breed's page
+And I see the retried breed with it's status set to "sold out"
+
+As an Admin
+When I visit '/admin/inventory'
+And I click on an "edit-#{cat.name}" button
+Then I am redirected to '/admin/cats/:id/edit'
+And I see information for updating that particular cat
+
+As an Admin
+When I visit '/admin/cats/:id/edit'
+And I fill in the name field
+And I fill in the description field
+And I click the "save" button
+Then I am redirected to that cat's page
+And I see the edited cat with it's new name and description
+
+As an Admin
+When I visit '/admin/cats/:id/edit'
+And I fill in the image field
+And I click the "save" button
+Then I am redirected to that cat's page
+And I see the edited cat with it's new image
+
+As an Admin
+When I visit '/admin/cats/:id/edit'
+And I click the retire button
+Then I am redirected to the cat's page
+And I see the retried cat with it's status set to "sold out"
+
+As an Admin
+When I visit '/admin/orders'
+Then I see a list of orders with filter buttons to sort them
+
+As an Admin
+When I visit '/admin/orders'
+And I see an order which is ready
+And I click on a "paid" button
+Then I stay on the same page
+And I see the order status change to "paid"
+
+As an Admin
+When I visit '/admin/orders'
+And I see an order which is paid
+And I click on a "completed" button
+Then I stay on the same page
+And I see the order status change to "completed"
+
+As an Admin
+When I visit '/admin/orders'
+And I see an order which is either ready, paid, or completed
+And I click on a "cancelled" button
+Then I stay on the same page
+And I see the order status change to "cancelled"
+
+As an Admin
+When I visit '/admin/orders'
+And I click on an order's name
+Then I am redirected to a '/admin/orders/:id'
+And I see a table describing that order
+And buttons to edit that order's status (ready, paid, completed, cancelled)
+
+As an Admin
+When I visit '/admin/orders/:id'
+The buttons should function as they do in 'admin/orders'
+Except they link me to the coordinating '/users/:id/orders'
