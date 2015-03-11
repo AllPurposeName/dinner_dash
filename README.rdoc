@@ -15,7 +15,7 @@
 
 006 The photo is option. If not present, a stand-in photo is used.
 
-007 EXAMPLE DATA At least 20 items with varying prices. Some should have multiple categories
+007 EXAMPLE ITEM DATA At least 20 items with varying prices. Some should have multiple categories
 
 ## USER
 
@@ -25,7 +25,7 @@
 
 010 A user may optionally provide a display name which must be 2-32 characters
 
-011 EXAMPLE DATA
+011 EXAMPLE USER DATA
 
 ## ORDER
 
@@ -33,11 +33,11 @@
 
 013 An order must be for one or more items being sold
 
-014 EXAMPLE DATA At least 10 orders with at least 2 at each stage (ordered, completed, cancelled)
+014 EXAMPLE ORDER DATA At least 10 orders with at least 2 at each stage (ordered, completed, cancelled)
 
 ## CATEGORIES
 
-015 EXAMPLE DATA At least 5 categories of various sizes
+015 EXAMPLE CATEGORY DATA At least 5 categories of various sizes
 
 ######################################################
 
@@ -66,24 +66,24 @@ login with flash "invalid login"
 023 In '/' When I click on a breed I should redirect to breed's path
 
 ## ADMIN DASHBOARD
-025 In '/admin' I should see the contents of '/admin/inventory'
+024 In '/admin' I should see the contents of '/admin/inventory'
 
 ################## MILESTONE THREE ##################
 
 ## BREEDS
-026 In '/breeds' I should see a title of "categories" and a list of breeds with pictures
+025 In '/breeds' I should see a title of "categories" and a list of breeds with pictures
 
-027 In '/breeds/:id' I should see a Carosel of the breed pictures along with
+026 In '/breeds/:id' I should see a Carosel of the breed pictures along with
 a description of the breed, a status of the breed (retired?), and a "add random #{breed} cat to cart" button
 
 ##CATS
 
-028 In '/cats' I should see a title of "cats" and a list of all the cats
+027 In '/cats' I should see a title of "cats" and a list of all the cats
 
-029 In '/cats/:id' I should see a picture of the cat as well as a name, breed,
+028 In '/cats/:id' I should see a picture of the cat as well as a name, breed,
 status, price, and an "add to cart" button
 
-030 In '/admin/cats/:id/edit' I should see a form for changing the cats:
+029 In '/admin/cats/:id/edit' I should see a form for changing the cats:
 Name, description, breed, status(retired?), image
 and a save button
 
@@ -91,24 +91,24 @@ and a save button
 
 ## CART
 
-031 In '/cart' I should see a table containing columns for:
+030 In '/cart' I should see a table containing columns for:
 name, breed, quantity, price, subtotal price (per extra quantity), total price.
 Also an "order histroy" button, a "continue" button, and a "checkout" button
 
 ## ORDERS
 
-032 In '/users/:id/orders' I should see a titled "orders" and a table for each order.
+031 In '/users/:id/orders' I should see a titled "orders" and a table for each order.
 Above each table should be a order number.
 
 In each table should be a column for purchaser full name, purchaser email, cat name,
 date, status, quantity, price, and total
 
-033 In '/admin/orders' I should see a title of "order stats" as well as filter buttons
+032 In '/admin/orders' I should see a title of "order stats" as well as filter buttons
 for each type of order status(completed, paid, ordered, cancelled)
 Additionally I should see a list of orders (whose sort changes by filter button)
 Each with a button to update the status.
 
-034 In '/admin/orders' I should see a title "order" with a table identical to
+033 In '/admin/orders' I should see a title "order" with a table identical to
 issue 032. Below the table should be buttons to update the status of the order.
 
 
@@ -116,25 +116,25 @@ issue 032. Below the table should be buttons to update the status of the order.
 
 ## FRONT END
 
-035 Navigation bar to easily access most of the site. This includes:
+034 Navigation bar to easily access most of the site. This includes:
 Home button to '/', login/out button to '/login' or '/logout',
 cart button to '/cart', categories button to '/breeds',
 orders button to '/user/:id/orders',
 order status button to '/admin/orders', and inventory button to '/admin/inventory'
 
-036 Footer with contact information, link to twitter, etc.
+035 Footer with contact information, link to twitter, etc.
 
-037 Carosel for '/breeds/:id' displaying several pictures per breed.
+036 Carosel for '/breeds/:id' displaying several pictures per breed.
 
 ################## MILESTONE SIX ##################
 
 ## AUTHENTICATION
 
-038 Only Admin should be allowed to view the three views rendering '/admin...'
+037 Only Admin should be allowed to view the three views rendering '/admin...'
 
-039 Only Admin's nav bar displays Orders/Inventory
+038 Only Admin's nav bar displays Orders/Inventory
 
-040 When a guest visits any unauthroized portion site, they should be redirected to the dashboard.
+039 When a guest visits any unauthroized portion site, they should be redirected to the dashboard.
 When they click on any orders button, they should be redirected to login with a flash
 prompting them to login.
 
@@ -144,11 +144,13 @@ prompting them to login.
 
 ## GUEST
 
+040
 As a Guest
 When I visit Dashboard ( '/' )
 Then I should see a selection(pictures and short descriptions) of breeds under "need a breed"
 and a selection of cats under "ready right meow"
 
+041
 As a Guest
 When I visit Dashboard ( '/' )
 And I click on a breed selection
@@ -156,14 +158,17 @@ And I am redirected to that breed's page
 Then I should see information on the breed including:
 picture, description, price, name, status, add to cart
 
+042
 As a Guest
 When I visit '/breeds'
 Then I see a list of breeds each with picture and name
 
+043
 As a Guest
 When I visit '/breeds'
 And I click on a breed name or picture
 
+044
 As a Guest
 When I visit Dashboard ( '/' )
 And I click on a cat selection
@@ -171,21 +176,25 @@ And I am redirected to the cat's path
 Then I should see information on the cat including:
 picture name, breed, price, description, status, and add to cart
 
+045
 As a Guest
 When I visit '/cats'
 Then I see a list of all available cats each with picture and name
 
+046
 As a Guest
 When I visit '/cats'
 And I click on a cat name or picture
 Then I see the cat's page
 
+047
 As a Guest
 When I visit '/login'
 And I don't wish to login
 And I click the "not now" button
 Then I should see the dashboard
 
+048
 As a Guest
 When I visit '/cart'
 And I click the "continue" button
@@ -193,57 +202,68 @@ Then I am redirected to the previous page I was on
 and if I weren't on a valid page(dashboard, breeds, cats)
 Then I am redirected to the dashboard
 
+049
 As a Guest
 When I visit '/cart'
 And I click the "order history" button
 Then I am prompted to login at the login page
 
+050
 As a Guest
 When I visit '/cart'
 And I click the "checkout" button
 Then I am prompted to login at the login page
 
+051
 As a Guest
 When I am prompted to login from the "order history" button
 And I login validly
 Then I see my order page with all my past orders
 
+052
 As a Guest
 When I am prompted to login from the "checkout" button
 And I login validly
 Then I see my order page with the cart's items added to the list of orders
 
+053
 As a Guest
 When I visit any location not listed previously
 Then I am redirected to dashboard with no flash message
 
 ## USER
 
+054
 As an authenticated User
 When I visit '/user/myid/orders'
 Then I am not prompted to login and I see my order list.
 
+055
 As an authenticated User
 When I click any "add to cart" button
 Then I am redirected to '/cart' with my newest order displayed
 
+056
 As an authenticated User
 When I visit any location not listed previously
 Then I am redirected to dashboard with no flash message
 
 ## ADMIN
 
+057
 As an Admin
 When I visit '/admin'
 Then I am redirected to '/admin/inventory'
 And I see a list of breeds and a list of cats
 
+058
 As an Admin
 When I visit '/admin/inventory'
 And I click on an "edit-#{breed.name}" button
 Then I am redirected to '/admin/breeds/:id/edit'
 And I see information for updating that particular breed
 
+059
 As an Admin
 When I visit '/admin/breeds/:id/edit'
 And I fill in the name field
@@ -252,6 +272,7 @@ And I click the "save" button
 Then I am redirected to that breed's page
 And I see the edited breed with it's new name and description
 
+060
 As an Admin
 When I visit '/admin/breeds/:id/edit'
 And I fill in the image field
@@ -259,18 +280,21 @@ And I click the "save" button
 Then I am redirected to that breed's page
 And I see the edited breed with it's new image in the carosel
 
+061
 As an Admin
 When I visit '/admin/breeds/:id/edit'
 And I click the retire button
 Then I am redirected to the breed's page
 And I see the retried breed with it's status set to "sold out"
 
+062
 As an Admin
 When I visit '/admin/inventory'
 And I click on an "edit-#{cat.name}" button
 Then I am redirected to '/admin/cats/:id/edit'
 And I see information for updating that particular cat
 
+063
 As an Admin
 When I visit '/admin/cats/:id/edit'
 And I fill in the name field
@@ -279,6 +303,7 @@ And I click the "save" button
 Then I am redirected to that cat's page
 And I see the edited cat with it's new name and description
 
+064
 As an Admin
 When I visit '/admin/cats/:id/edit'
 And I fill in the image field
@@ -286,16 +311,19 @@ And I click the "save" button
 Then I am redirected to that cat's page
 And I see the edited cat with it's new image
 
+065
 As an Admin
 When I visit '/admin/cats/:id/edit'
 And I click the retire button
 Then I am redirected to the cat's page
 And I see the retried cat with it's status set to "sold out"
 
+066
 As an Admin
 When I visit '/admin/orders'
 Then I see a list of orders with filter buttons to sort them
 
+067
 As an Admin
 When I visit '/admin/orders'
 And I see an order which is ready
@@ -303,6 +331,7 @@ And I click on a "paid" button
 Then I stay on the same page
 And I see the order status change to "paid"
 
+068
 As an Admin
 When I visit '/admin/orders'
 And I see an order which is paid
@@ -310,6 +339,7 @@ And I click on a "completed" button
 Then I stay on the same page
 And I see the order status change to "completed"
 
+069
 As an Admin
 When I visit '/admin/orders'
 And I see an order which is either ready, paid, or completed
@@ -317,6 +347,7 @@ And I click on a "cancelled" button
 Then I stay on the same page
 And I see the order status change to "cancelled"
 
+070
 As an Admin
 When I visit '/admin/orders'
 And I click on an order's name
@@ -324,6 +355,7 @@ Then I am redirected to a '/admin/orders/:id'
 And I see a table describing that order
 And buttons to edit that order's status (ready, paid, completed, cancelled)
 
+080
 As an Admin
 When I visit '/admin/orders/:id'
 The buttons should function as they do in 'admin/orders'
