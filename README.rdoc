@@ -25,7 +25,7 @@
 
 010 A user may optionally provide a display name which must be 2-32 characters
 
-011 EXAMPLE USER DATA
+011 EXAMPLE USER DATA generate 20 users with valid fields
 
 ## ORDER
 
