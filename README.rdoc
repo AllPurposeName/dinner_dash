@@ -167,6 +167,7 @@ Then I see a list of breeds each with picture and name
 As a Guest
 When I visit '/breeds'
 And I click on a breed name or picture
+Then I am linked to the specific breed.
 
 044
 As a Guest
@@ -355,7 +356,7 @@ Then I am redirected to a '/admin/orders/:id'
 And I see a table describing that order
 And buttons to edit that order's status (ready, paid, completed, cancelled)
 
-080
+071
 As an Admin
 When I visit '/admin/orders/:id'
 The buttons should function as they do in 'admin/orders'
