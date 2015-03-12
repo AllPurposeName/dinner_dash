@@ -1,11 +1,9 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe "Database exists and" do
 
+  let(:example_user) { create(:user) }
   context "has a User that" do
-
-    let(:example_user) { create(:user) }
-
     it "has a username" do
       expect(example_user.username).to eq("someusername")
     end
