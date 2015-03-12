@@ -74,7 +74,7 @@ describe "Database exists and" do
     let(:example_cat) { create(:cat) }
     let(:retired_cat) { create(:retired_cat) }
 
-    describe Cat do
+    describe "Cat" do
       it { should validate_uniqueness_of(:name)}
     end
 
