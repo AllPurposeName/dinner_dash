@@ -3,3 +3,7 @@
 <% @cats.each do |cat| %>
   <%= cat.name %>
 <% end %>
+
+<% @breeds.each do |breed| %>
+  <%= link_to "breed_#{breed.name}" %>
+<% end %>
