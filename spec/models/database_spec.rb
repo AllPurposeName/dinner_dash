@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Database exists and" do
 
-  let(:example_user) { FactoryGirl.create(:user) }
+  let(:example_user) { create(:user) }
   context "has a User that" do
     it "has a username" do
       expect(example_user.username).to eq("someusername")
