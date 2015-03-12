@@ -7,6 +7,9 @@ describe 'Guests can browse for their meal' do
     # When I visit Dashboard ( '/' )
     # Then I should see a selection(pictures and short descriptions) of breeds under "need a breed"
     # and a selection of cats under "ready right meow"
+    
+    visit root_path
+    expect(page).to have_content("ready right meow")
     end
 
     it 'links to breeds page' do
