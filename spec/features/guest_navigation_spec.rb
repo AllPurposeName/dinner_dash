@@ -7,10 +7,13 @@ describe 'Guests can browse for their meal' do
     # When I visit Dashboard ( '/' )
     # Then I should see a selection(pictures and short descriptions) of breeds under "need a breed"
     # and a selection of cats under "ready right meow"
-    
+    create_list :cat, 3
     visit root_path
     expect(page).to have_content("ready right meow")
-    end
+    expect(page).to have_content("Cat 1")
+    expect(page).to have_content("Cat 2")
+    expect(page).to have_content("Cat 3")
+  end
 
     it 'links to breeds page' do
       # 041
