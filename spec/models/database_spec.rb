@@ -18,11 +18,11 @@ describe "Database exists and" do
       expect(example_user.full_name).to eq("First Last")
     end
 
-    it "has a role " do 
+    it "has a role " do
       expect(example_user.role).to eq(0)
     end
 
-    it "has an email" do 
+    it "has an email" do
       expect(example_user.email).to eq("example@example.com")
     end
 
@@ -50,7 +50,7 @@ describe "Database exists and" do
   end
 
   context "has Statuses that" do
-    it "has a name" do 
+    it "has a name" do
       status = create(:status)
       expect(status.name).to eq("Paid")
     end
@@ -74,7 +74,7 @@ describe "Database exists and" do
     let(:example_cat) { create(:cat) }
     let(:retired_cat) { create(:retired_cat) }
 
-    describe Cat do
+    describe "Cat" do
       it { should validate_uniqueness_of(:name)}
     end
 
@@ -100,7 +100,7 @@ describe "Database exists and" do
     end
 
     it "has an image_path" do
-      expect(example_cat.cat_path).to eq("IDK")
+      expect(example_cat.image_path).to eq("IDK")
     end
 
     it "belongs to at least one breed" do
@@ -132,6 +132,10 @@ describe "Database exists and" do
 
     it "has an image_path" do
       expect(a_breed.image_path).to eq("IDK")
+    end
+
+    it "has a description" do
+      expect(a_breed.description).to eq("description")
     end
 
     it "is retired or not" do
