@@ -23,9 +23,12 @@ describe 'Guests can browse for their meal' do
       # And I am redirected to that breed's page
       # Then I should see information on the breed including:
       # picture, description, price, name, status, add to cart
+
+      expect(page).to have_content("Sabertooth")
+      expect(page).to have_content("")
     end
 
-    it 'links to cats page' do
+    xit 'links to cats page' do
       # 044
       # As a Guest
       # When I visit Dashboard ( '/' )
@@ -37,14 +40,14 @@ describe 'Guests can browse for their meal' do
   end
 
   context 'on the "/breeds" page' do
-    it 'shows a proper list of breeds'do
+    xit 'shows a proper list of breeds'do
     # 042
     # As a Guest
     # When I visit '/breeds'
     # Then I see a list of breeds each with picture and name
     end
 
-    it 'links to individual breeds' do
+    xit 'links to individual breeds' do
       # 043
       # As a Guest
       # When I visit '/breeds'
@@ -54,14 +57,14 @@ describe 'Guests can browse for their meal' do
   end
 
   context 'on the "/cats" page' do
-    it 'shows a proper list of cats'do
+    xit 'shows a proper list of cats'do
       # 045
       # As a Guest
       # When I visit '/cats'
       # Then I see a list of all available cats each with picture and name
     end
 
-    it 'links to individual cats' do
+    xit 'links to individual cats' do
       # 046
       # As a Guest
       # When I visit '/cats'
