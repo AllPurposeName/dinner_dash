@@ -7,7 +7,7 @@ describe 'Guests can browse for their meal' do
     # When I visit Dashboard ( '/' )
     # Then I should see a selection(pictures and short descriptions) of breeds under "need a breed"
     # and a selection of cats under "ready right meow"
-    # create_list :cat, 3
+    create_list :cat, 3
     visit root_path
     expect(page).to have_content("ready right meow")
     expect(page).to have_content("Cat 1")
@@ -23,12 +23,12 @@ describe 'Guests can browse for their meal' do
       # And I am redirected to that breed's page
       # Then I should see information on the breed including:
       # picture, description, price, name, status, add to cart
-      create(:breed, name: "Sabertooth")
+      create(:breed, name: "sabertooth", description: "A long fanged feline for your long suffering appetite!")
 
       visit root_path
       click_link_or_button("breed_sabertooth")
 
-      expect(path).to eq("/breed/sabertooth")
+      expect(current_path).to eq("/breeds/sabertooth")
       expect(page).to have_content("Sabertooth")
       expect(page).to have_content("A long fanged feline for your long suffering appetite!")
     end
