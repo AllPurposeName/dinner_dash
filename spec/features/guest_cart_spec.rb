@@ -1,11 +1,5 @@
 require 'rails_helper'
 describe 'guest can use a cart' do
-  context 'adding to the cart' do
-    it 'adds cats to the cart' do
-    end
-  end
-
-
   it 'redirects through the continue button' do
     # 048
     # As a Guest
@@ -44,5 +38,4 @@ describe 'guest can use a cart' do
     # And I login validly
     # Then I see my order page with all my past orders
   end
-end
 end
