@@ -5,6 +5,6 @@ FactoryGirl.define do
     price "20.00"
     status false
     image_path "IDK"
-    association :breed, factory: :breed, :name "tabby"
+    association :breed, factory: breed: "tabby"
   end
 end
