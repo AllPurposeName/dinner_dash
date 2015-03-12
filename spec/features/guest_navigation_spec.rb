@@ -33,7 +33,7 @@ describe 'Guests can browse for their meal' do
       expect(page).to have_content("A long fanged feline for your long suffering appetite!")
     end
 
-    xit 'links to cats page' do
+    it 'links to cats page' do
       # 044
       # As a Guest
       # When I visit Dashboard ( '/' )
@@ -41,6 +41,14 @@ describe 'Guests can browse for their meal' do
       # And I am redirected to the cat's path
       # Then I should see information on the cat including:
       # picture name, breed, price, description, status, and add to cart
+      cat_test = create(:cat, name: "horacio", description: "Once the prince of wales' cat, horacio fell on hard times")
+
+      visit root_path
+      click_link_or_button("cat_horacio")
+
+      expect(current_path).to eq("/cats/#{cat_test.id}")
+      expect(page).to have_content("Horacio")
+      expect(page).to have_content("Once the prince of wales' cat, horacio fell on hard times")
     end
   end
 

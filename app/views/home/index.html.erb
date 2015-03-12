@@ -1,7 +1,7 @@
 <p>ready right meow</p>
 
 <% @cats.each do |cat| %>
-  <%= cat.name %>
+  <%= link_to "cat_#{cat.name}", "cats/#{cat.id}" %>
 <% end %>
 
 <% @breeds.each do |breed| %>
