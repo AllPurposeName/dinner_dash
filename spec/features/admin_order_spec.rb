@@ -36,7 +36,7 @@ describe 'admin orders' do
       # And I see the order status change to "cancelled"
     end
   end
-  context 'when visiting a particular order'
+  context 'when visiting a particular order' do
     it 'it displays a lot of information' do
       # 070
       # As an Admin
