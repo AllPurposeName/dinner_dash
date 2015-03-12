@@ -5,5 +5,5 @@
 <% end %>
 
 <% @breeds.each do |breed| %>
-  <%= link_to "breed_#{breed.name}" %>
+  <%= link_to "breed_#{breed.name}", "breeds/#{breed.name.downcase}"%>
 <% end %>
