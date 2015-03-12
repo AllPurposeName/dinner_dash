@@ -45,7 +45,7 @@ describe "Database exists and" do
     end
 
     it "belongs to a status" do
-      expect(example_order.status).to eq(Status.find(example_order.status_id)
+      expect(example_order.status).to eq(Status.find(example_order.status_id))
     end
   end
 
@@ -61,11 +61,11 @@ describe "Database exists and" do
     let(:example_order_cat) { create(:order_cat) }
 
     it "belongs to an Order" do
-      expect(example_order_cat.order).to eq(Order.find(example_order_cat.order_id)
+      expect(example_order_cat.order).to eq(Order.find(example_order_cat.order_id))
     end
 
     it "belongs to an cat" do
-      expect(example_order_cat.cat).to eq(cat.find(example_order_cat.cat_id)
+      expect(example_order_cat.cat).to eq(cat.find(example_order_cat.cat_id))
     end
   end
 
@@ -74,7 +74,7 @@ describe "Database exists and" do
     let(:example_cat) { create(:cat) }
     let(:retired_cat) { create(:retired_cat) }
 
-    describe cat do
+    describe Cat do
       it { should validate_uniqueness_of(:name)}
     end
 
@@ -113,11 +113,11 @@ describe "Database exists and" do
     let(:an_cat_breed) { create(:cat_breed) }
 
     it "belongs to an cat" do
-      expect(an_cat_breed.cat).to eq(cat.find(an_cat_breed.cat_id)
+      expect(an_cat_breed.cat).to eq(cat.find(an_cat_breed.cat_id))
     end
 
     it "belongs to a breed" do
-      expect(an_cat_breed.breed).to eq(breed.find(an_cat_breed.cat_id)
+      expect(an_cat_breed.breed).to eq(breed.find(an_cat_breed.cat_id))
     end
   end
 
