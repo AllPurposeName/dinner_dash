@@ -23,6 +23,12 @@ require 'rails_helper'
        expect(example_user.email).to eq("example@example.com")
      end
 
+     it "has an email that is unique and plausible" do
+       user_with_invalid_email = create(:user, email: "poop")
+       expect(User.find(example_user.id)).to eq(example_user)
+       expect(User.find(user_with_invalid_email.id)).to eq(false)
+     end
+
      it "has orders" do
        expect(example_user.orders).to eq([])
      end
