@@ -10,6 +10,9 @@ describe 'Guest on the login page', type: :feature do
       # And I don't wish to login
       # And I click the "not now" button
       # Then I should see the dashboard
+      visit "/login"
+      click_link_or_button("not now")
+      expect(current_path).to eq("/")
     end
 
     it 'logs in with valid data' do
