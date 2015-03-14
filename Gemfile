@@ -36,7 +36,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   gem 'capybara'
   gem 'launchy'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'cancancan'
   gem 'pry'
   gem 'byebug'
   gem 'factory_girl_rails', "~> 4.0"

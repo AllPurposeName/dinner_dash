@@ -16,7 +16,7 @@ require 'rails_helper'
      end
 
      it "has a role " do
-       expect(example_user.role).to eq(0)
+       expect(example_user.role).to eq("default")
      end
 
      it "has an email" do
@@ -28,4 +28,3 @@ require 'rails_helper'
      end
    end
  end
-

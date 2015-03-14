@@ -1,0 +1,12 @@
+
+<h1>All Cats:</h1>
+
+<% @cats.each do |cat| %>
+  <%= link_to "cat_#{cat.name}", "cats/#{cat.id}" %>
+<% end %>
+
+<h1>All Breeds:</h1>
+
+<% @breeds.each do |breed| %>
+  <%= link_to "breed_#{breed.name}", "breeds/#{breed.name.downcase}"%>
+<% end %>

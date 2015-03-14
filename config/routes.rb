@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   get '/breeds/:name', to: "breeds#show"
   get '/cats/:id', to: "cats#show"
+  get '/admin/inventory', to: "home#show"
 end
