@@ -1,30 +1,30 @@
 require 'rails_helper'
 
 describe "Database exists and" do
-  let(:example_user) { create(:user) }
   context "has a User that" do
+    let(:user) { create(:user) }
     it "has a username" do
-      expect(example_user.username).to eq("someusername")
+      expect(user.username).to eq("someusername")
     end
 
     it "has a password" do
-      expect(example_user.password).to eq("password")
+      expect(user.password).to eq("password")
     end
 
     it "has a full name" do
-      expect(example_user.full_name).to eq("First Last")
+      expect(user.full_name).to eq("First Last")
     end
 
     it "has a role " do
-      expect(example_user.role).to eq(0)
+      expect(user.role).to eq(0)
     end
 
     describe "has an email" do
       it "exists" do
-        expect(example_user.email).to eq("example@example.com")
+        expect(user.email).to eq("example@example.com")
       end
 
-      xit "is unique" do
+      it "is unique" do
         duplicate_email_user = build(:user)
         expect(duplicate_email_user).to_not be_valid
       end
@@ -35,7 +35,7 @@ describe "Database exists and" do
     end
 
     it "has orders" do
-      expect(example_user.orders).to eq([])
+      expect(user.orders).to eq([])
     end
   end
 end
