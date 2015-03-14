@@ -121,11 +121,16 @@ describe 'Guests can browse for their meal' do
   end
 
   context 'on the "/cats" page' do
-    xit 'shows a proper list of cats'do
+    it 'shows a proper list of cats'do
       # 045
       # As a Guest
       # When I visit '/cats'
       # Then I see a list of all available cats each with picture and name
+      create_list :cat, 3
+      visit cats_path
+      expect(page).to have_content("Cat 4")
+      expect(page).to have_content("Cat 5")
+      expect(page).to have_content("Cat 6")
     end
 
     xit 'links to individual cats' do
