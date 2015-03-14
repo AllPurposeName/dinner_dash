@@ -3,8 +3,17 @@ require 'rails_helper'
 describe "Database exists and" do
   context "has a User that" do
     let(:user) { create(:user) }
-    it "has a username" do
-      expect(user.username).to eq("someusername")
+    describe "has a username that" do
+      it "exists" do
+        expect(user.username).to eq("someusername")
+      end
+
+      it "is 2 to 32 characters long" do
+        short_name_user = build(:user, username: "A")
+        long_name_user = build(:user, username: "123456789asdfghzxcvnmfdsasdfasdfasdfasdf")
+        expect(short_name_user).to_not be_valid
+        expect(long_name_user).to_not be_valid
+      end
     end
 
     it "has a password" do
