@@ -1,6 +1,5 @@
 class Cat < ActiveRecord::Base
 
-
   def availability
     if !retired
       return "Available!"

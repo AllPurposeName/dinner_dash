@@ -1,9 +1,10 @@
 FactoryGirl.define do
+
   factory :breed do
-    name "MyText"
-image_path "MyText"
-retired false
-description "MyText"
+    sequence(:name) { |n| "Breed #{n}"}
+    image_path "MyText"
+    retired false
+    description "A long fanged feline for your long suffering appetite!"
   end
 
 end
