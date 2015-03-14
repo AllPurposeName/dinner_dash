@@ -46,22 +46,23 @@ describe 'Guests can browse for their meal', type: :feature do
 
     end
 
-    # it 'links to cats page' do
-    #   # 044
-    #   # As a Guest
-    #   # When I visit Dashboard ( '/' )
-    #   # And I click on a cat selection
-    #   # And I am redirected to the cat's path
-    #   # Then I should see information on the cat including:
-    #   # picture, name, breed, price, description, status, and add to cart
-    #   create(:cat, name: "snowball", description: "Guaranteed to put a smile on your face!")
-    #
-    #   visit root_path
-    #   click_link_or_button("cat_snowball")
-    #
-    #   expect(current_path).to eq("/cats/snowball")
-    #   expect(page).to have_content("Snowball")
-    # end
+    it 'links to cats page' do
+      # 044
+      # As a Guest
+      # When I visit Dashboard ( '/' )
+      # And I click on a cat selection
+      # And I am redirected to the cat's path
+      # Then I should see information on the cat including:
+      # picture, name, breed, price, description, status, and add to cart
+
+      create(:cat, name: "snowball", description: "Guaranteed to put a smile on your face!")
+
+      visit root_path
+      click_link_or_button("cat_snowball")
+
+      expect(current_path).to eq("/cats/1")
+      expect(page).to have_content("Snowball")
+    end
   end
 
   context 'on the "/breeds" page' do
