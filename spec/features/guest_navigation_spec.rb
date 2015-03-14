@@ -121,7 +121,7 @@ describe 'Guests can browse for their meal' do
   end
 
   context 'on the "/cats" page' do
-    it 'shows a proper list of cats'do
+    it "shows a proper list of cats"do
       create_list :cat, 3
       visit cats_path
       expect(page).to have_content("Cat 4")
@@ -129,12 +129,7 @@ describe 'Guests can browse for their meal' do
       expect(page).to have_content("Cat 6")
     end
 
-    it 'links to individual cats' do
-      # 046
-      # As a Guest
-      # When I visit '/cats'
-      # And I click on a cat name or picture
-      # Then I see the cat's page
+    it "links to individual cats" do
       cats = create_list :cat, 3
       cat = cats[0]
       visit cats_path
