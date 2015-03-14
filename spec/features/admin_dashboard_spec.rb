@@ -19,6 +19,7 @@ describe 'admin dashboard' do
     expect(page).to have_content("All Cats:")
     expect(page).to have_content("All Breeds:")
   end
+  let(:admin) { User.create(role: 1, username: "Adminguy", password: "adminpass", full_name: "DJ G", email: "admin_example@example.com") }
   context 'from the inventory' do
     it 'links to edit breed' do
       # 058
@@ -27,7 +28,7 @@ describe 'admin dashboard' do
       # And I click on an "edit-breed-#{breed.name}" button
       # Then I am redirected to '/admin/breeds/:id/edit'
       # And I see information for updating that particular breed
-      User.create(role: 1, username: "Adminguy", password: "adminpass", full_name: "DJ G", email: "admin_example@example.com",)
+      admin
       create(:breed, name: "sabertooth",
                      description: "A long fanged feline for your long suffering appetite!",
                      image_path: "sabertooth_01.jpeg",
@@ -51,6 +52,18 @@ describe 'admin dashboard' do
       # And I click on an "edit-#{cat.name}" button
       # Then I am redirected to '/admin/cats/:id/edit'
       # And I see information for updating that particular cat
+      admin
+      create(:cat, name: "brody")
+
+      visit login_path
+      fill_in "session[username]", with: "Adminguy"
+      fill_in "session[password]", with: "adminpass"
+      click_link_or_button("log in")
+
+      click_link_or_button("edit_cat_brody")
+      expect(current_path).to eq("/admin/cats/1/edit")
+      expect(page).to have_content("Brody")
+      expect(page).to have_content("edit")
     end
   end
 end

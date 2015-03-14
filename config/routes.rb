@@ -4,10 +4,11 @@ Rails.application.routes.draw do
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
   get '/breeds/:name', to: "breeds#show", as: "breed"
-  get '/cats/:id', to: "cats#show"
+  get '/cats/:id', to: "cats#show", as: "cat"
 
   scope '/admin' do
     get '/inventory', to: "home#show"
     get '/breeds/:id/edit', to: "breeds#edit", as: "edit_breed"
+    get '/cats/:id/edit', to: "cats#edit", as: "edit_cat"
   end
 end
