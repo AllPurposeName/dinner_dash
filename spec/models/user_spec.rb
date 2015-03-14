@@ -10,9 +10,9 @@ describe "Database exists and" do
 
       it "is 2 to 32 characters long" do
         short_name_user = build(:user, username: "A")
-        long_name_user = build(:user, username: "123456789asdfghzxcvnmfdsasdfasdfasdfasdf")
+        long_name = build(:user, username: "123456789asdfghzxcvnmfdsasdfaddds")
         expect(short_name_user).to_not be_valid
-        expect(long_name_user).to_not be_valid
+        expect(long_name).to_not be_valid
       end
     end
 
