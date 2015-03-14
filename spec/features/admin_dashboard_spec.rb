@@ -42,6 +42,9 @@ describe 'admin dashboard' do
       click_link_or_button("edit_breed_sabertooth")
       expect(current_path).to eq("/admin/breeds/1/edit")
       expect(page).to have_content("Sabertooth")
+      expect(page).to have_content("Description of Sabertooth:")
+      expect(page).to have_content("Image_path of Sabertooth:")
+      expect(page).to have_content("Retired status of Sabertooth:")
       expect(page).to have_content("edit")
     end
 

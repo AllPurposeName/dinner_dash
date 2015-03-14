@@ -2,12 +2,15 @@
   <%= f.label :name, "edit name" %>
   <%= f.text_field :name %>
 
+  <%= "Description of #{@breed.name.capitalize}:" %>
   <%= f.label :description, "edit description" %>
   <%= f.text_field :description %>
 
+  <%= "Image_path of #{@breed.name.capitalize}:" %>
   <%= f.label :image_path, "edit image_path" %>
   <%= f.text_field :image_path %>
 
+  <%= "Retired status of #{@breed.name.capitalize}:" %>
   <%= f.label :retired, "edit retired" %>
   <%= f.text_field :retired %>
 
