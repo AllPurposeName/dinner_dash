@@ -1,9 +1,20 @@
 class HomeController < ApplicationController
-
+  before_action :set_cats, :set_breeds
   def index
-    @cats = Cat.all
 
-    @breeds = Breed.all
   end
 
+  def show
+
+  end
+
+  private
+
+  def set_cats
+    @cats = Cat.all
+  end
+
+  def set_breeds
+    @breeds = Breed.all
+  end
 end

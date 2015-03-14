@@ -1,0 +1,22 @@
+<%= form_for(@cat) do |f| %>
+  <%= f.label :name, "edit name" %>
+  <%= f.text_field :name %>
+
+  <%= "Description for #{@cat.name.capitalize}:" %>
+  <%= f.label :description, "edit description" %>
+  <%= f.text_field :description %>
+
+  <%= "Price for #{@cat.name.capitalize}:" %>
+  <%= f.label :price, "edit price" %>
+  <%= f.text_field :price %>
+
+  <%= "Image_path for #{@cat.name.capitalize}:" %>
+  <%= f.label :image_path, "edit image_path" %>
+  <%= f.text_field :image_path %>
+
+  <%= "Retired status for #{@cat.name.capitalize}:" %>
+  <%= f.label :retired, "edit retired" %>
+  <%= f.text_field :retired %>
+
+  <%= f.submit "Submit" %>
+<% end %>

@@ -56,4 +56,3 @@ describe "Database exists and" do
     end
   end
 end
-
