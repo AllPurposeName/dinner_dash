@@ -26,7 +26,7 @@ describe 'admin dashboard' do
       # When I visit '/admin/inventory'
       # And I click on an "edit-#{breed.name}" button
       # Then I am redirected to '/admin/breeds/:id/edit'
-      # And I see information for updating that particular breed
+      # And I see information for updating tha
     end
 
     it 'links to edit a specific cat' do
