@@ -11,8 +11,15 @@ describe "Database exists and" do
       expect(user.password).to eq("password")
     end
 
-    it "has a full name" do
-      expect(user.full_name).to eq("First Last")
+    describe "has a full name that" do
+      it "exists" do
+        expect(user.full_name).to eq("First Last")
+      end
+
+      it "is not blank" do
+        user_with_blank_full_name = build(:user, full_name: "")
+        expect(user_with_blank_full_name).to_not be_valid
+      end
     end
 
     it "has a role " do
