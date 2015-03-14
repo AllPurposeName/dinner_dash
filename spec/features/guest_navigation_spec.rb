@@ -113,7 +113,8 @@ describe 'Guests can browse for their meal' do
       visit breeds_path
       # save_and_open_page
       click_link_or_button(breeds[0].name)
-      expect(current_path).to eq('/breeds/breed-1')
+      expect(current_path).to eq("/breeds/#{breeds[0].name.gsub(" ", "%20")}")
+
       # expect(page).to have_content("Breed 1")
 
     end
