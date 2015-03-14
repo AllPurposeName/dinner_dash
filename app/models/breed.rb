@@ -10,4 +10,8 @@ class Breed < ActiveRecord::Base
     end
   end
 
+  def to_param
+    "#{(name.parameterize)}"
+  end
+
 end

@@ -4,6 +4,8 @@
   <%= link_to "cat_#{cat.name}", "cats/#{cat.id}" %>
 <% end %>
 
+<%= link_to "breeds", breeds_path %>
+
 <% @breeds.each do |breed| %>
   <%= link_to "breed_#{breed.name}", "breeds/#{breed.name.downcase}"%>
 <% end %>
