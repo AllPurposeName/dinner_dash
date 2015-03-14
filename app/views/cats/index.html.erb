@@ -1,5 +1,5 @@
 <ul>
 <% @cats.each do |cat| %>
-  <li><%= cat.name %> <br></li>
+  <%= link_to "cat_#{cat.name}", "cats/#{cat.id}" %>
 <% end %>
 </ul>
