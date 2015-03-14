@@ -1,0 +1,6 @@
+<%= form_for(:session, url: login_path) do |f| %>
+<%= f.text_field :username %>
+<%= f.password_field :password %>
+<%= f.submit "log in"%>
+<% end %>
+<%= link_to "not now", root_path %>

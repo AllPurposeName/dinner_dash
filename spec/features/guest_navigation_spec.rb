@@ -30,20 +30,25 @@ describe 'Guests can browse for their meal', type: :feature do
       # Then I should see information on the breed including:
       # picture, description, price, name, status, add to cart
 
-      create(:breed, name: "sabertooth", description: "A long fanged feline for your long suffering appetite!")
+      create(:breed, name: "sabertooth",
+                     description: "A long fanged feline for your long suffering appetite!",
+                     image_path: "sabertooth_01.jpeg",
+                     retired: false)
 
       visit root_path
       # save_and_open_page
       click_link_or_button("breed_sabertooth")
 
       expect(current_path).to eq("/breeds/sabertooth")
-      expect(page).to have_content("Sabertooth")
-      # expect(page).to have_content("Sabertooth 2")
-      # expect(page).to have_content("Sabertooth 3")
-      expect(page).to have_content("A long fanged feline for your long suffering appetite!")
-      # expect(page).to have_content("A long fanged feline for your long suffering appetite! 2")
-      # expect(page).to have_content("A long fanged feline for your long suffering appetite! 3")
 
+      within "#status" do
+        expect(page).to have_content("Available!")
+      end
+      within "#breed-single" do
+        expect(page).to have_content("Sabertooth")
+        expect(page).to have_css("img[src*='sabertooth']")
+        expect(page).to have_content("A long fanged feline for your long suffering appetite!")
+      end
     end
 
     it 'links to cats page' do
@@ -53,15 +58,25 @@ describe 'Guests can browse for their meal', type: :feature do
       # And I click on a cat selection
       # And I am redirected to the cat's path
       # Then I should see information on the cat including:
-      # picture, name, breed, price, description, status, and add to cart
-
-      create(:cat, name: "snowball", description: "Guaranteed to put a smile on your face!")
+      # picture name, breed, price, description, status, and add to cart
+      cat_test = create(:cat, name: "horacio",
+                              description: "Once the prince of wales' cat, horacio fell on hard times",
+                              price: 1000,
+                              retired: false,
+                              image_path: "sabertooth_01.jpg")
 
       visit root_path
-      click_link_or_button("cat_snowball")
+      click_link_or_button("cat_horacio")
 
-      expect(current_path).to eq("/cats/1")
-      expect(page).to have_content("Snowball")
+      within "#status" do
+        expect(page).to have_content("Available!")
+      end
+
+      within "#cat-single" do
+        expect(current_path).to eq("/cats/#{cat_test.id}")
+        expect(page).to have_content("Horacio")
+        expect(page).to have_content("Once the prince of wales' cat, horacio fell on hard times")
+      end
     end
   end
 
