@@ -38,13 +38,13 @@ describe 'admin dashboard' do
       fill_in "session[username]", with: "Adminguy"
       fill_in "session[password]", with: "adminpass"
       click_link_or_button("log in")
-
       click_link_or_button("edit_breed_sabertooth")
+
       expect(current_path).to eq("/admin/breeds/1/edit")
       expect(page).to have_content("Sabertooth")
-      expect(page).to have_content("Description of Sabertooth:")
-      expect(page).to have_content("Image_path of Sabertooth:")
-      expect(page).to have_content("Retired status of Sabertooth:")
+      expect(page).to have_content("Description of Sabertooths:")
+      expect(page).to have_content("Image_path of Sabertooths:")
+      expect(page).to have_content("Retired status of Sabertooths:")
       expect(page).to have_content("edit")
     end
 
@@ -66,6 +66,10 @@ describe 'admin dashboard' do
       click_link_or_button("edit_cat_brody")
       expect(current_path).to eq("/admin/cats/1/edit")
       expect(page).to have_content("Brody")
+      expect(page).to have_content("Description for Brody:")
+      expect(page).to have_content("Price for Brody:")
+      expect(page).to have_content("Image_path for Brody:")
+      expect(page).to have_content("Retired status for Brody:")
       expect(page).to have_content("edit")
     end
   end
