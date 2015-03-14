@@ -8,8 +8,10 @@ class BreedsController < ApplicationController
   end
 
   def show
-    # binding.pry
     @breed = Breed.find_by(name: params[:name])
   end
 
+  def edit
+    @breed = Breed.find(params[:id])
+  end
 end
