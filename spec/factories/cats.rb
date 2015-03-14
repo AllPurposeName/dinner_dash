@@ -1,5 +1,6 @@
 FactoryGirl.define do
   sequence(:name) { |n| "Cat #{n}"}
+
   factory :cat do
     name
     price 3000

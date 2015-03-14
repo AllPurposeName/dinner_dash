@@ -1,19 +1,25 @@
 require 'rails_helper'
-describe 'Guests can browse for their meal' do
-  context 'on the dashboard' do
-    it 'displays a selection of breeds and cats' do
-    # 040
-    # As a Guest
-    # When I visit Dashboard ( '/' )
-    # Then I should see a selection(pictures and short descriptions) of breeds under "need a breed"
-    # and a selection of cats under "ready right meow"
-    create_list :cat, 3
-    visit root_path
-    expect(page).to have_content("ready right meow")
-    expect(page).to have_content("Cat 1")
-    expect(page).to have_content("Cat 2")
-    expect(page).to have_content("Cat 3")
+describe 'Guests can browse for their meal', type: :feature do
+
+  before(:each) do
+     visit root_path
   end
+
+  context 'on the dashboard' do
+
+    it 'displays a selection of breeds and cats' do
+      # 040
+      # As a Guest
+      # When I visit Dashboard ( '/' )
+      # Then I should see a selection(pictures and short descriptions) of breeds under "need a breed"
+      # and a selection of cats under "ready right meow"
+      create_list :cat, 3
+      visit root_path
+      expect(page).to have_content("ready right meow")
+      expect(page).to have_content("Cat 1")
+      expect(page).to have_content("Cat 2")
+      expect(page).to have_content("Cat 3")
+    end
 
     it 'links to breeds page' do
       # 041
@@ -23,25 +29,39 @@ describe 'Guests can browse for their meal' do
       # And I am redirected to that breed's page
       # Then I should see information on the breed including:
       # picture, description, price, name, status, add to cart
+
       create(:breed, name: "sabertooth", description: "A long fanged feline for your long suffering appetite!")
 
       visit root_path
+      # save_and_open_page
       click_link_or_button("breed_sabertooth")
 
       expect(current_path).to eq("/breeds/sabertooth")
       expect(page).to have_content("Sabertooth")
+      # expect(page).to have_content("Sabertooth 2")
+      # expect(page).to have_content("Sabertooth 3")
       expect(page).to have_content("A long fanged feline for your long suffering appetite!")
+      # expect(page).to have_content("A long fanged feline for your long suffering appetite! 2")
+      # expect(page).to have_content("A long fanged feline for your long suffering appetite! 3")
+
     end
 
-    xit 'links to cats page' do
-      # 044
-      # As a Guest
-      # When I visit Dashboard ( '/' )
-      # And I click on a cat selection
-      # And I am redirected to the cat's path
-      # Then I should see information on the cat including:
-      # picture name, breed, price, description, status, and add to cart
-    end
+    # it 'links to cats page' do
+    #   # 044
+    #   # As a Guest
+    #   # When I visit Dashboard ( '/' )
+    #   # And I click on a cat selection
+    #   # And I am redirected to the cat's path
+    #   # Then I should see information on the cat including:
+    #   # picture, name, breed, price, description, status, and add to cart
+    #   create(:cat, name: "snowball", description: "Guaranteed to put a smile on your face!")
+    #
+    #   visit root_path
+    #   click_link_or_button("cat_snowball")
+    #
+    #   expect(current_path).to eq("/cats/snowball")
+    #   expect(page).to have_content("Snowball")
+    # end
   end
 
   context 'on the "/breeds" page' do
