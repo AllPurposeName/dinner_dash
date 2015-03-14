@@ -2,11 +2,11 @@
 <h1>All Cats:</h1>
 
 <% @cats.each do |cat| %>
-  <%= link_to "cat_#{cat.name}", "cats/#{cat.id}" %>
+  <%= link_to "edit_cat_#{cat.name}", "admin/cats/#{cat.id}/edit" %>
 <% end %>
 
 <h1>All Breeds:</h1>
 
 <% @breeds.each do |breed| %>
-  <%= link_to "breed_#{breed.name}", "breeds/#{breed.name.downcase}"%>
+  <%= link_to "edit_breed_#{breed.name}", edit_breed_path(breed)%>
 <% end %>

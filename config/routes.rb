@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root to: "home#index"
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"
-  get '/breeds/:name', to: "breeds#show"
+  get '/breeds/:name', to: "breeds#show", as: "breed"
   get '/cats/:id', to: "cats#show"
-  get '/admin/inventory', to: "home#show"
+
+  scope '/admin' do
+    get '/inventory', to: "home#show"
+    get '/breeds/:id/edit', to: "breeds#edit", as: "edit_breed"
+  end
 end

@@ -24,9 +24,24 @@ describe 'admin dashboard' do
       # 058
       # As an Admin
       # When I visit '/admin/inventory'
-      # And I click on an "edit-#{breed.name}" button
+      # And I click on an "edit-breed-#{breed.name}" button
       # Then I am redirected to '/admin/breeds/:id/edit'
-      # And I see information for updating tha
+      # And I see information for updating that particular breed
+      User.create(role: 1, username: "Adminguy", password: "adminpass", full_name: "DJ G", email: "admin_example@example.com",)
+      create(:breed, name: "sabertooth",
+                     description: "A long fanged feline for your long suffering appetite!",
+                     image_path: "sabertooth_01.jpeg",
+                     retired: false)
+
+      visit login_path
+      fill_in "session[username]", with: "Adminguy"
+      fill_in "session[password]", with: "adminpass"
+      click_link_or_button("log in")
+
+      click_link_or_button("edit_breed_sabertooth")
+      expect(current_path).to eq("/admin/breeds/1/edit")
+      expect(page).to have_content("Sabertooth")
+      expect(page).to have_content("edit")
     end
 
     it 'links to edit a specific cat' do
