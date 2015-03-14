@@ -25,6 +25,7 @@ describe "Database exists and" do
       end
 
       it "is unique" do
+        user
         duplicate_email_user = build(:user)
         expect(duplicate_email_user).to_not be_valid
       end
