@@ -1,0 +1,3 @@
+<% @breeds.each do |breed| %>
+  <%= link_to "#{breed.name}", breed_path(name: breed.name) %>
+<% end %>
