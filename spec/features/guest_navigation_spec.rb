@@ -136,5 +136,15 @@ describe "Guests can browse for their meal" do
       click_link_or_button(cat.name)
       expect(current_path).to eq("/cats/#{cat.id}")
     end
+
+    it "links to individual cats from breeds page" do
+      breed = Breed.create(name: "breed1", description: "none", retired: false)
+      cat = breed.cats.create(name:"random name", description: "cool cat", price: 1000)
+      visit root_path
+      click_link_or_button("breed1")
+      click_link_or_button("random name")
+      expect(current_path).to eq("/cats/#{cat.id}")
+    end
+ 
   end
 end

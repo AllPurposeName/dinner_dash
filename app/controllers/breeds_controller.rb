@@ -7,6 +7,7 @@ class BreedsController < ApplicationController
 
   def show
     @breed = Breed.find_by(name: params[:name])
+    @cats = @breed.cats
   end
 
   def edit
