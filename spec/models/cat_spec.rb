@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Cat, type: :model do
   context "must" do
@@ -65,11 +65,17 @@ RSpec.describe Cat, type: :model do
     end
 
 
-    # context "belongs to a breed" do
-    #   it "exists" do
-    #     expect(build(:cat, breed: "sabertooth")).to be_valid
-    #   end
-    # end
+    context "belongs to a breed" do
+      it "exists" do
+        breed = create(:breed, name: "sabertooth")
+        feline = breed.cats.create(name: "SnowballIV",
+                                   price: 1000,
+                                   retired: false,
+                                   image_path: "image.jpg",
+                                   description: "some description")
+        expect(feline.breeds.first.name).to eq("sabertooth")
+      end
+    end
 
 
   end
