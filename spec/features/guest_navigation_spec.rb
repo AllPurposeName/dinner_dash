@@ -1,16 +1,16 @@
-require 'rails_helper'
-describe 'Guests can browse for their meal' do
+require "rails_helper"
+describe "Guests can browse for their meal" do
 
   # before(:each) do
   #    visit root_path
   # end
 
-  context 'on the dashboard' do
+  context "on the dashboard" do
 
-    it 'displays a selection of breeds and cats' do
+    it "displays a selection of breeds and cats" do
       # 040
       # As a Guest
-      # When I visit Dashboard ( '/' )
+      # When I visit Dashboard ( "/" )
       # Then I should see a selection(pictures and short descriptions) of breeds under "need a breed"
       # and a selection of cats under "ready right meow"
       create_list :cat, 3
@@ -21,12 +21,12 @@ describe 'Guests can browse for their meal' do
       expect(page).to have_content("Cat 3")
     end
 
-    it 'links to breeds page' do
+    it "links to breeds page" do
       # 041
       # As a Guest
-      # When I visit Dashboard ( '/' )
+      # When I visit Dashboard ( "/" )
       # And I click on a breed selection
-      # And I am redirected to that breed's page
+      # And I am redirected to that breed"s page
       # Then I should see information on the breed including:
       # name, description, picture, status, price, add to cart
 
@@ -46,22 +46,22 @@ describe 'Guests can browse for their meal' do
       end
       within "#breed-single" do
         expect(page).to have_content("Sabertooth")
-        expect(page).to have_css("img[src*='sabertooth']")
+        expect(page).to have_css("img[src*="sabertooth"]")
         expect(page).to have_content("A long fanged feline for your long suffering appetite!")
       end
     end
 
-    it 'links to cats page' do
+    it "links to cats page" do
       # 044
       # As a Guest
-      # When I visit Dashboard ( '/' )
+      # When I visit Dashboard ( "/" )
       # And I click on a cat selection
-      # And I am redirected to the cat's path
+      # And I am redirected to the cat"s path
       # Then I should see information on the cat including:
       # name, breed, description, price, status, picture, and add to cart
       cat_test = create(:cat, name: "horacio",
                               # breed: "sabertooth",
-                              description: "Once the prince of wales' cat, horacio fell on hard times",
+                              description: "Once the prince of wales" cat, horacio fell on hard times",
                               price: 1000,
                               retired: false,
                               image_path: "sabertooth_01.jpg")
@@ -76,7 +76,7 @@ describe 'Guests can browse for their meal' do
       within "#cat-single" do
         expect(current_path).to eq("/cats/#{cat_test.id}")
         expect(page).to have_content("Horacio")
-        expect(page).to have_content("Once the prince of wales' cat, horacio fell on hard times")
+        expect(page).to have_content("Once the prince of wales" cat, horacio fell on hard times")
         # expect(page).to have_content("sabertooth")
       end
     end
@@ -84,11 +84,11 @@ describe 'Guests can browse for their meal' do
 
 
 
-  context 'on the "/breeds" page' do
-    it 'shows a proper list of breeds'do
+  context "on the "/breeds" page" do
+    it "shows a proper list of breeds"do
       # 042
       # As a Guest
-      # When I visit '/breeds'
+      # When I visit "/breeds"
       # Then I see a list of breeds each with picture and name
 
       create_list :breed, 3
@@ -101,10 +101,10 @@ describe 'Guests can browse for their meal' do
       expect(page).to have_content("Breed 3")
     end
 
-    it 'links to individual breeds' do
+    it "links to individual breeds" do
       # 043
       # As a Guest
-      # When I visit '/breeds'
+      # When I visit "/breeds"
       # And I click on a breed name or picture
       # Then I am linked to the specific breed.
 
@@ -120,7 +120,7 @@ describe 'Guests can browse for their meal' do
     end
   end
 
-  context 'on the "/cats" page' do
+  context "on the "/cats" page" do
     it "shows a proper list of cats"do
       create_list :cat, 3
       visit cats_path
