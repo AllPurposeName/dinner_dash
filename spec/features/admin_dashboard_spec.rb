@@ -1,10 +1,10 @@
-require 'rails_helper'
-describe 'admin dashboard' do
-  it 'when first logged in' do
+require "rails_helper"
+describe "admin dashboard" do
+  it "when first logged in" do
     # 057
     # As an Admin
     # When I login
-    # Then I am redirected to '/admin/inventory'
+    # Then I am redirected to "/admin/inventory"
     # And I see a list of breeds and a list of cats
     User.create(role: 1, username: "Adminguy", password: "adminpass", full_name: "DJ G", email: "admin_example@example.com",)
     visit login_path
@@ -20,16 +20,16 @@ describe 'admin dashboard' do
     expect(page).to have_content("All Breeds:")
   end
   let(:admin) { User.create(role: 1, username: "Adminguy", password: "adminpass", full_name: "DJ G", email: "admin_example@example.com") }
-  context 'from the inventory' do
-    it 'links to edit breed' do
+  context "from the inventory" do
+    it "links to edit breed" do
       # 058
       # As an Admin
-      # When I visit '/admin/inventory'
+      # When I visit "/admin/inventory"
       # And I click on an "edit-breed-#{breed.name}" button
-      # Then I am redirected to '/admin/breeds/:id/edit'
+      # Then I am redirected to "/admin/breeds/:id/edit"
       # And I see information for updating that particular breed
       admin
-      create(:breed, name: "sabertooth",
+      breedy = create(:breed, name: "sabertooth",
                      description: "A long fanged feline for your long suffering appetite!",
                      image_path: "sabertooth_01.jpeg",
                      retired: false)
@@ -40,7 +40,7 @@ describe 'admin dashboard' do
       click_link_or_button("log in")
       click_link_or_button("edit_breed_sabertooth")
 
-      expect(current_path).to eq("/admin/breeds/1/edit")
+      expect(current_path).to eq("/admin/breeds/#{breedy.name}/edit")
       expect(page).to have_content("Sabertooth")
       expect(page).to have_content("Description of Sabertooths:")
       expect(page).to have_content("Image_path of Sabertooths:")
@@ -48,12 +48,12 @@ describe 'admin dashboard' do
       expect(page).to have_content("edit")
     end
 
-    it 'links to edit a specific cat' do
+    it "links to edit a specific cat" do
       # 062
       # As an Admin
-      # When I visit '/admin/inventory'
+      # When I visit "/admin/inventory"
       # And I click on an "edit-#{cat.name}" button
-      # Then I am redirected to '/admin/cats/:id/edit'
+      # Then I am redirected to "/admin/cats/:id/edit"
       # And I see information for updating that particular cat
       admin
       create(:cat, name: "brody")

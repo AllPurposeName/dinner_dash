@@ -1,13 +1,13 @@
-require 'rails_helper'
-describe 'Guest on the login page', type: :feature do
+require "rails_helper"
+describe "Guest on the login page", type: :feature do
 
 
-  context 'there is as skip button' do
-    it 'login is not necessary' do
+  context "there is as skip button" do
+    it "login is not necessary" do
       # 047
       # As a Guest
-      # When I visit '/login'
-      # And I don't wish to login
+      # When I visit "/login"
+      # And I don"t wish to login
       # And I click the "not now" button
       # Then I should see the dashboard
       visit "/login"
@@ -15,10 +15,10 @@ describe 'Guest on the login page', type: :feature do
       expect(current_path).to eq("/")
     end
   end
-  context 'there is a log in button' do
-    it 'logs in with valid data' do
+  context "there is a log in button" do
+    it "logs in with valid data" do
       #   As a Guest
-      #   when I visit '/login'
+      #   when I visit "/login"
       #   And I enter valid information
       #   And I click submit
       #   Then I should be redirected to the dashboard as a logged in user
@@ -32,9 +32,9 @@ describe 'Guest on the login page', type: :feature do
       # expect(current_user).to eq(guests_identity.name)
     end
 
-    it 'does not log in with invalid data' do
+    it "does not log in with invalid data" do
       # As a Guest
-      # When I visit '/login'
+      # When I visit "/login"
       # And I enter invalid information
       # And I click Submit
       # Then I am denied login and prompted to attempt again
@@ -47,8 +47,8 @@ describe 'Guest on the login page', type: :feature do
 
       within("#flash-tryagain") do
         expect(page).to have_content("Whoops, try again")
-      expect(current_path).to eq('/login')
-    end
+        expect(current_path).to eq("/login")
+      end
     end
   end
 end

@@ -1,5 +1,5 @@
 class CatsController < ApplicationController
-  before_action :set_cat
+  before_action :set_cat, only: [:show, :edit]
 
   def index
     @cats = Cat.all

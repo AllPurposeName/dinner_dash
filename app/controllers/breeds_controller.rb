@@ -2,8 +2,6 @@ class BreedsController < ApplicationController
 
 
   def index
-    # binding.pry
-
     @breeds = Breed.all
   end
 
@@ -12,6 +10,6 @@ class BreedsController < ApplicationController
   end
 
   def edit
-    @breed = Breed.find(params[:id])
+    @breed = Breed.find_by(name: params[:id])
   end
 end
