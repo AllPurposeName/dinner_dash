@@ -32,11 +32,11 @@ Breed.create([
 
    {name: "prionailurus viverrinus",
     retired: false,
-    description:"Lives: near marshes, mangroves, rivers and streams in India and Southeast Asia"},
+    description: "Lives: near marshes, mangroves, rivers and streams in India and Southeast Asia"},
 
     {name: "oncilla",
      retired: false,
-     description:"Aka little spotted cat"}])
+     description: "Aka little spotted cat"}])
 
 Breed.find_by(name: "sabertooth").cats.create([
   {name:"sabertooth 1",
