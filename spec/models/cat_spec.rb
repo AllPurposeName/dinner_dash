@@ -22,11 +22,9 @@ RSpec.describe Cat, type: :model do
       xit "must be unique" do
         cat1 = create(:cat, name: "Abe")
         cat2 = create(:cat, name: "Abe")
-        binding.pry
         expect(cat1).to be_valid
         expect(cat2).to_not be_valid
       end
-
     end
 
 
