@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th>Name &nbsp; &nbsp; &nbsp;</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+
+   <% @cats.each do |cat| %>
+  <tr>
+    <td><%= cat.name %></td>
+    <td><%= cat.description %></td>
+    <td><%= cat.price %></td>
+  </tr>
+  <% end %>
+
+</table>
+
+
+<%= link_to "continue", cat_path(@cat)  %>

@@ -1,6 +1,6 @@
 require "rails_helper"
 describe "guest can use a cart" do
-  xit "redirects through the continue button" do
+  it "redirects through the continue button" do
     # 048
     # As a Guest
     # When I visit "/cart"
@@ -8,11 +8,11 @@ describe "guest can use a cart" do
     # Then I am redirected to the previous page I was on
     # and if I weren"t on a valid page(dashboard, breeds, cats)
     # Then I am redirected to the dashboard
-    kitty = create(:cat)
+    kitty = create(:cat, name: "kitty")
 
     visit "/cats/#{kitty.id}"
     click_link_or_button("add to cart")
-    expect(current_path).to eq("/cart")
+    expect(current_path).to eq(cart_path)
     click_link_or_button("continue")
     expect(current_path).to eq("/cats/#{kitty.id}")
   end

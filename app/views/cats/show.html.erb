@@ -8,4 +8,6 @@
 
 <h3 id="status"> <%= @cat.availability %> </h3>
 
+<%= button_to "add to cart", cart_items_path(id: @cat.id) %>
+
 </div>
