@@ -10,7 +10,7 @@ describe "admin editing mode" do
       # And I click the "save" button
       # Then I am redirected to that breed"s page
       # And I see the edited breed with it"s new name and description
-  end
+    end
     it "allows admin to change image" do
       # 060
       # As an Admin

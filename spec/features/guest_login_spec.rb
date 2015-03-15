@@ -47,8 +47,8 @@ describe "Guest on the login page", type: :feature do
 
       within("#flash-tryagain") do
         expect(page).to have_content("Whoops, try again")
-      expect(current_path).to eq("/login")
-    end
+        expect(current_path).to eq("/login")
+      end
     end
   end
 end

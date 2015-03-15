@@ -8,11 +8,13 @@ describe "guest can use a cart" do
     # Then I am redirected to the previous page I was on
     # and if I weren"t on a valid page(dashboard, breeds, cats)
     # Then I am redirected to the dashboard
-    visit "/cats/1"
+    kitty = create(:cat)
+
+    visit "/cats/#{kitty.id}"
     click_link_or_button("add to cart")
     expect(current_path).to eq("/cart")
     click_link_or_button("continue")
-    expect(current_path).to eq("/cats/1")
+    expect(current_path).to eq("/cats/#{kitty.id}")
   end
 
   xit "stops Guest from checking out without logging in" do
