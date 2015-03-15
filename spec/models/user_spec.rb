@@ -32,7 +32,7 @@ describe "Database exists and" do
     end
 
     it "has a role " do
-      expect(user.role).to eq(0)
+      expect(user.role).to eq("default")
     end
 
     describe "has an email" do
