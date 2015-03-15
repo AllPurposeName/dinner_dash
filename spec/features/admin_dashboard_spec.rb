@@ -29,7 +29,7 @@ describe "admin dashboard" do
       # Then I am redirected to "/admin/breeds/:id/edit"
       # And I see information for updating that particular breed
       admin
-      create(:breed, name: "sabertooth",
+      breedy = create(:breed, name: "sabertooth",
                      description: "A long fanged feline for your long suffering appetite!",
                      image_path: "sabertooth_01.jpeg",
                      retired: false)
@@ -40,7 +40,7 @@ describe "admin dashboard" do
       click_link_or_button("log in")
       click_link_or_button("edit_breed_sabertooth")
 
-      expect(current_path).to eq("/admin/breeds/1/edit")
+      expect(current_path).to eq("/admin/breeds/#{breedy.name}/edit")
       expect(page).to have_content("Sabertooth")
       expect(page).to have_content("Description of Sabertooths:")
       expect(page).to have_content("Image_path of Sabertooths:")

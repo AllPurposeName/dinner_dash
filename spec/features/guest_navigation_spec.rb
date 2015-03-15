@@ -46,7 +46,7 @@ describe "Guests can browse for their meal" do
       end
       within "#breed-single" do
         expect(page).to have_content("Sabertooth")
-        expect(page).to have_css("img[src*="sabertooth"]")
+        expect(page).to have_css("img[src*='sabertooth']")
         expect(page).to have_content("A long fanged feline for your long suffering appetite!")
       end
     end
@@ -61,7 +61,7 @@ describe "Guests can browse for their meal" do
       # name, breed, description, price, status, picture, and add to cart
       cat_test = create(:cat, name: "horacio",
                               # breed: "sabertooth",
-                              description: "Once the prince of wales" cat, horacio fell on hard times",
+                              description: "Once the prince of wales' cat, horacio fell on hard times",
                               price: 1000,
                               retired: false,
                               image_path: "sabertooth_01.jpg")
@@ -76,7 +76,7 @@ describe "Guests can browse for their meal" do
       within "#cat-single" do
         expect(current_path).to eq("/cats/#{cat_test.id}")
         expect(page).to have_content("Horacio")
-        expect(page).to have_content("Once the prince of wales" cat, horacio fell on hard times")
+        expect(page).to have_content("Once the prince of wales' cat, horacio fell on hard times")
         # expect(page).to have_content("sabertooth")
       end
     end
@@ -84,7 +84,7 @@ describe "Guests can browse for their meal" do
 
 
 
-  context "on the "/breeds" page" do
+  context "on the '/breeds' page" do
     it "shows a proper list of breeds"do
       # 042
       # As a Guest
@@ -120,7 +120,7 @@ describe "Guests can browse for their meal" do
     end
   end
 
-  context "on the "/cats" page" do
+  context "on the '/cats' page" do
     it "shows a proper list of cats"do
       create_list :cat, 3
       visit cats_path

@@ -1,6 +1,6 @@
 require "rails_helper"
 describe "guest can use a cart" do
-  it "redirects through the continue button" do
+  xit "redirects through the continue button" do
     # 048
     # As a Guest
     # When I visit "/cart"
