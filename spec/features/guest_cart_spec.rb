@@ -17,13 +17,19 @@ describe "guest can use a cart" do
     expect(current_path).to eq("/cats/#{kitty.id}")
   end
 
-  xit "stops Guest from checking out without logging in" do
+  it "stops Guest from checking out without logging in" do
     # 050
     # As a Guest
     # When I visit "/cart"
     # And I click the "checkout" button
     # Then I am prompted to login at the login page
     # context "on the "/cart"" do
+    bruno = create(:cat, name: "Bruno")
+    visit "/cats/#{bruno.id}"
+    click_link_or_button("add to cart")
+    click_link_or_button("checkout")
+    expect(current_path).to eq(login_path)
+    expect(page).to have_content("log in first")
   end
   xit "directs Guest to their orders after they log in from cart#checkout" do
     # 052

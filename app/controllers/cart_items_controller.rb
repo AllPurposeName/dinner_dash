@@ -8,8 +8,8 @@ class CartItemsController < ApplicationController
         @cats << Cat.find(cats_and_quantity[0])
       end
     end
-    binding.pry
     @cats
+    @cart = params[:cart_data]
   end
 
   def create
@@ -17,12 +17,14 @@ class CartItemsController < ApplicationController
     cart_data[params[:id]] ||= 1
     cart_data[params[:id]] += 1
     session[:cart] = cart_data
-    redirect_to cart_path(cart_data: cart_data, id: params[:id]), alert: "cat added to cart"
+    redirect_to cart_path(cart_data: cart_data), alert: "cat added to cart"
   end
 
   private
 
   def set_cat
-    @cat = Cat.find(params[:id])
+    if params[:id]
+      @cat = Cat.find(params[:id])
+    end
   end
 end
