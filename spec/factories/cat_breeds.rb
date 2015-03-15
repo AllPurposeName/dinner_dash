@@ -3,5 +3,4 @@ FactoryGirl.define do
     references ""
     references ""
   end
-
 end
