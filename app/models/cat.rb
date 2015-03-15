@@ -7,7 +7,6 @@ class Cat < ActiveRecord::Base
   validates :name, length: { minimum: 2, maximum: 32 }
   validates_uniqueness_of :name
   validates :price, presence: true
-  validates :image_path, presence: true
   validates :description, presence: true
 
 
