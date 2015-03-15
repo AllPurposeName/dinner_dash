@@ -2,8 +2,75 @@ require 'rails_helper'
 
 RSpec.describe Cat, type: :model do
   context "must" do
-    it "have a title" do
-      expect(build(:cat, name: "")).to_not be_valid
+
+    context "have a title" do
+      it "exists" do
+        expect(build(:cat, name: "Snowball")).to be_valid
+      end
+
+      it "must not be blank" do
+        expect(build(:cat, name: "")).to_not be_valid
+      end
+
+      it "is 2 to 32 characters long" do
+        short_name = build(:cat, name: "A")
+        long_name = build(:cat, name: "123456789asdfghzxcvnmfdsasdfaddds")
+        expect(short_name).to_not be_valid
+        expect(long_name).to_not be_valid
+      end
+
+      xit "must be unique" do
+        cat1 = create(:cat, name: "Abe")
+        cat2 = create(:cat, name: "Abe")
+        expect(cat1).to be_valid
+        expect(cat2).to_not be_valid
+      end
     end
+
+
+    context "have a description" do
+      it "exists" do
+        expect(build(:cat, description: "super awesome cat")).to be_valid
+      end
+
+      it "that must not be blank" do
+        expect(build(:cat, description: "")).to_not be_valid
+      end
+    end
+
+
+    context "have a valid price" do
+      it "exists" do
+        expect(build(:cat, price: "1000")).to be_valid
+      end
+
+      it "that must not be blank" do
+        expect(build(:cat, price: "")).to_not be_valid
+      end
+    end
+
+
+    context "have an image path" do
+      it "exists" do
+        expect(build(:cat, image_path: "sabertooth_01.jpeg")).to be_valid
+      end
+
+      # it "that must not be blank" do
+      #   expect(build(:cat, image_path: "")).to_not be_valid
+      # end
+
+      xit "is default if " do
+        expect(build(:cat, image_path: "")).to_not be_valid
+      end
+    end
+
+
+    # context "belongs to a breed" do
+    #   it "exists" do
+    #     expect(build(:cat, breed: "sabertooth")).to be_valid
+    #   end
+    # end
+
+
   end
 end
