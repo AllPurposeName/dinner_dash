@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     end
     current_user = user
     if user.admin? && user.authenticate(params[:session][:password])
-      flash[:welcomeadmin] = "Welcome, admin #{user.username.capitalize}!"
+      flash[:welcomeadmin] = "Welcome, #{user.username.capitalize}!"
       redirect_to '/admin/inventory'
     elsif user && user.authenticate(params[:session][:password])
       redirect_to '/'
