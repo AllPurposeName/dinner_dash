@@ -1,14 +1,11 @@
 class CatsController < ApplicationController
-  before_action :set_cat, only: [:show, :edit]
+  before_action :set_cat, only: [:show]
 
   def index
     @cats = Cat.all
   end
 
   def show
-  end
-
-  def edit
   end
 
   private
