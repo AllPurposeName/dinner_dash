@@ -1,4 +1,4 @@
-class Cart < ActiveRecord::Base
+class Cart
 attr_reader :contents
 
   def initialize(cart_data)
