@@ -1,5 +1,5 @@
 class CartItemsController < ApplicationController
-  before_action :set_cat, only: [:create]
+  before_action :set_cat, only: [:create, :delete]
 
   def show
     cats = []
@@ -16,6 +16,12 @@ class CartItemsController < ApplicationController
     @cart.add_to_cart(@cat.id)
     session[:cart_data] = @cart.contents
     redirect_to cart_path(cart_contents: @cart.contents), alert: "cat added to cart"
+  end
+
+  def delete
+    @cart.remove_from_cart(@cat.id)
+    session[:cart_data] = @cart.contents
+    redirect_to cart_path(cart_contents: @cart.contents)
   end
 
   private

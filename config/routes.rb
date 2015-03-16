@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/cart_items', to: "cart_items#create"
   get '/cart_items', to: "cart_items#show", as: "cart"
   post '/order_cats', to: "order_cats#create"
+  delete '/cart_items', to: "cart_items#delete"
 
   scope '/admin' do
     get '/inventory', to: "home#show"
