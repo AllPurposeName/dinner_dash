@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get '/breeds/:name', to: "breeds#show", as: "breed"
   get '/cats', to: "cats#index"
   get '/cats/:id', to: "cats#show", as: "cat"
+  post '/cart_items', to: "cart_items#create"
+  get '/cart_items', to: "cart_items#show", as: "cart"
+  post '/order_cats', to: "order_cats#create"
 
   scope '/admin' do
     get '/inventory', to: "home#show"

@@ -8,13 +8,23 @@ describe "guest can use a cart" do
     # Then I am redirected to the previous page I was on
     # and if I weren"t on a valid page(dashboard, breeds, cats)
     # Then I am redirected to the dashboard
-    kitty = create(:cat)
+    kitty = create(:cat, name: "kitty")
 
     visit "/cats/#{kitty.id}"
     click_link_or_button("add to cart")
-    expect(current_path).to eq("/cart")
+    expect(current_path).to eq(cart_path)
     click_link_or_button("continue")
     expect(current_path).to eq("/cats/#{kitty.id}")
+  end
+
+  it "displays multiple cats" do
+    kitty = create(:cat, name: "kitty")
+    visit "/cats/#{kitty.id}"
+    click_link_or_button("add to cart")
+    visit "/cats/#{kitty.id}"
+    click_link_or_button("add to cart")
+
+    expect(page).to have_content(kitty.price * 2)
   end
 
   xit "stops Guest from checking out without logging in" do
@@ -24,6 +34,12 @@ describe "guest can use a cart" do
     # And I click the "checkout" button
     # Then I am prompted to login at the login page
     # context "on the "/cart"" do
+    bruno = create(:cat, name: "Bruno")
+    visit "/cats/#{bruno.id}"
+    click_link_or_button("add to cart")
+    click_link_or_button("checkout")
+    expect(current_path).to eq(login_path)
+    expect(page).to have_content("log in first")
   end
   xit "directs Guest to their orders after they log in from cart#checkout" do
     # 052
