@@ -1,5 +1,6 @@
 class CartItemsController < ApplicationController
   before_action :set_cat, only: [:create, :delete]
+  before_action :set_cat, only: [:create]
 
   def show
     cats = []
@@ -23,8 +24,6 @@ class CartItemsController < ApplicationController
     session[:cart_data] = @cart.contents
     redirect_to cart_path(cart_contents: @cart.contents)
   end
-
-  private
 
   def set_cat
     if params[:id]
