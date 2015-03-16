@@ -3,6 +3,8 @@ class Cat < ActiveRecord::Base
 
   has_many :cat_breeds
   has_many :breeds, through: :cat_breeds
+  has_many :order_cats
+  has_many :orders, through: :order_cats
 
   validates :name, length: { minimum: 2, maximum: 32 }
   validates_uniqueness_of :name
