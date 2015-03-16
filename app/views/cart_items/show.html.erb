@@ -3,17 +3,27 @@
     <th>Name &nbsp; &nbsp; &nbsp;</th>
     <th>Description</th>
     <th>Price</th>
+    <th>Quantity</th>
+    <th>Total Price</th>
   </tr>
 
-   <% @cats.each do |cat| %>
+   <% @cats_and_quantity.each do |cat| %>
   <tr>
-    <td><%= cat.name %></td>
-    <td><%= cat.description %></td>
-    <td><%= cat.price %></td>
+    <td><%= cat[0].name %></td>
+    <td><%= cat[0].description %></td>
+    <td><%= cat[0].price %></td>
+    <td><%= cat[1]%></td>
+    <td><%= cat[1] * cat[0].price %></td>
   </tr>
   <% end %>
-
+  <tr>
+    <td> <%=  %> </td>
+    <td> <%=  %> </td>
+    <td> <%=  %> </td>
+    <td> <%=  %> </td>
+    <td> <%= @total_price %> </td>
+  </tr>
 </table>
 
 <%= button_to "checkout", order_cats_path %>
-<%= link_to "continue", cat_path(@cats.last)  %>
+<%= link_to "continue", '/'  %>

@@ -1,6 +1,6 @@
 require "rails_helper"
 describe "guest can use a cart" do
-  it "redirects through the continue button" do
+  xit "redirects through the continue button" do
     # 048
     # As a Guest
     # When I visit "/cart"
@@ -13,11 +13,20 @@ describe "guest can use a cart" do
     visit "/cats/#{kitty.id}"
     click_link_or_button("add to cart")
     expect(current_path).to eq(cart_path)
-    save_and_open_page
     click_link_or_button("continue")
     expect(current_path).to eq("/cats/#{kitty.id}")
   end
-  
+
+  it "displays multiple cats" do
+    kitty = create(:cat, name: "kitty")
+    visit "/cats/#{kitty.id}"
+    click_link_or_button("add to cart")
+    visit "/cats/#{kitty.id}"
+    click_link_or_button("add to cart")
+
+    expect(page).to have_content(kitty.price * 2)
+  end
+
   xit "stops Guest from checking out without logging in" do
     # 050
     # As a Guest

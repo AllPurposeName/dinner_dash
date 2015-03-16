@@ -9,4 +9,7 @@ attr_reader :contents
     @contents[cat] ||= 1
     @contents[cat] += 1
   end
+
+
+
 end
