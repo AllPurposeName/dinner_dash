@@ -7,8 +7,10 @@ class OrderCatsController < ApplicationController
     #save
     user = User.find(current_user.id)
     order = user.orders.build
+    # order.cats.create
     order.save
     redirect_to order_path(order.id)
+
   end
 
 end
