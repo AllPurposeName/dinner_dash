@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   delete '/cart_items', to: "cart_items#delete"
 
   namespace :admin do
-    get '/inventory', to: "home#show"
+    resources :inventory, only: [:index]
     get '/breeds/:id/edit', to: "breeds#edit", as: "edit_breed"
     get '/cats/:id/edit', to: "cats#edit", as: "edit_cat"
   end

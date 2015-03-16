@@ -1,6 +1,6 @@
-class Admin::HomeController < ApplicationController
+class Admin::InventoryController < ApplicationController
   before_action :set_cats, :set_breeds
-  def show
+  def index
 
   end
 
