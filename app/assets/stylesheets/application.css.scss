@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+#main-container {
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.navbar-default .navbar-nav > li > a  {
+  font-family: 'Comfortaa', Arial, serif; font-weight: 400;
+  text-transform: uppercase;
+}
+
+.font_test {
+  font-family: 'Comfortaa', Arial, serif; font-weight: 400;
+}

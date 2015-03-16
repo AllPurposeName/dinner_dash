@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe Cat, type: :model do
   context "must" do
 
-    context "have a title" do
+    context "have a name" do
       it "exists" do
         expect(build(:cat, name: "Snowball")).to be_valid
       end
@@ -19,9 +19,9 @@ RSpec.describe Cat, type: :model do
         expect(long_name).to_not be_valid
       end
 
-      xit "must be unique" do
+      it "must be unique" do
         cat1 = create(:cat, name: "Abe")
-        cat2 = create(:cat, name: "Abe")
+        cat2 = build(:cat, name: "Abe")
         expect(cat1).to be_valid
         expect(cat2).to_not be_valid
       end
@@ -59,8 +59,9 @@ RSpec.describe Cat, type: :model do
       #   expect(build(:cat, image_path: "")).to_not be_valid
       # end
 
-      xit "is default if " do
-        expect(build(:cat, image_path: "")).to_not be_valid
+      it "is default if " do
+        cat = Cat.create(name: "cat") 
+        expect(cat.image_path).to eq("cat.jpg")
       end
     end
 
