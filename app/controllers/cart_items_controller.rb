@@ -1,9 +1,9 @@
 class CartItemsController < ApplicationController
-  before_action :set_cat, only: [:create, :show]
+  before_action :set_cat, only: [:create]
 
   def show
     @cats = []
-    params[:cart_data].each do |cats_and_quantity|
+    params[:cart_contents].each do |cats_and_quantity|
       cats_and_quantity[1].to_i.times do ||
         @cats << Cat.find(cats_and_quantity[0])
       end
@@ -13,11 +13,9 @@ class CartItemsController < ApplicationController
   end
 
   def create
-    cart_data = session[:cart] || Hash.new(0)
-    cart_data[params[:id]] ||= 1
-    cart_data[params[:id]] += 1
-    session[:cart] = cart_data
-    redirect_to cart_path(cart_data: cart_data), alert: "cat added to cart"
+    @cart.add_to_cart(@cat.id)
+    session[:cart_data] = @cart.contents
+    redirect_to cart_path(cart_contents: @cart.contents, id: @cat.id), alert: "cat added to cart"
   end
 
   private
