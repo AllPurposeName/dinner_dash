@@ -1,6 +1,5 @@
 class CartItemsController < ApplicationController
   before_action :set_cat, only: [:create, :delete]
-  before_action :set_cat, only: [:create]
 
   def show
     cats = []
