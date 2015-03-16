@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   get '/cart_items', to: "cart_items#show", as: "cart"
   post '/order_cats', to: "order_cats#create"
   get '/order/:id', to: "orders#show", as: "order"
+  delete '/cart_items', to: "cart_items#delete"
 
-  scope '/admin' do
-    get '/inventory', to: "home#show"
-    get '/breeds/:id/edit', to: "breeds#edit", as: "edit_breed"
-    get '/cats/:id/edit', to: "cats#edit", as: "edit_cat"
+  namespace :admin do
+    resources :inventory, only: [:index]
+    resources :breeds, only: [:edit]
+    resources :cats, only: [:edit]
   end
 end
