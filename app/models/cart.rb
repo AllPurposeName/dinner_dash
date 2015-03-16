@@ -10,6 +10,11 @@ attr_reader :contents
     @contents[cat] += 1
   end
 
-
-
+  def remove_from_cart(cat)
+    @contents[cat.to_s] ||= 1
+    @contents[cat.to_s] -= 1
+    if @contents[cat.to_s] == 0
+      @contents.delete(cat)
+    end
+  end
 end

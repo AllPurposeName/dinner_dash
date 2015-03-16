@@ -26,4 +26,4 @@
 </table>
 
 <%= button_to "checkout", order_cats_path %>
-<%= link_to "continue", '/'  %>
+<%= link_to "continue", cat_path(@cats_and_quantity.last[0].id)  %>

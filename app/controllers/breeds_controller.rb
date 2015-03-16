@@ -10,7 +10,4 @@ class BreedsController < ApplicationController
     @cats = @breed.cats
   end
 
-  def edit
-    @breed = Breed.find_by(name: params[:id])
-  end
 end
