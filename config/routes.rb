@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/order_cats', to: "order_cats#create"
   delete '/cart_items', to: "cart_items#delete"
 
-  scope '/admin' do
+  namespace :admin do
     get '/inventory', to: "home#show"
     get '/breeds/:id/edit', to: "breeds#edit", as: "edit_breed"
     get '/cats/:id/edit', to: "cats#edit", as: "edit_cat"
