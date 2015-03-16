@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='http://fonts.googleapis.com/css?family=Crushed|Righteous|Comfortaa:400,700,300|Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
   <title>DinnerDash</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -62,7 +63,9 @@
         <%= content_tag :div, msg, :id => "flash-#{name}" %>
     <% end %>
 
-    <%= yield %>
+    <div class='font_test'>
+      <%= yield %>
+    </div>
 
   </div>
 
