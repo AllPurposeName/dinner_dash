@@ -6,10 +6,12 @@ class OrderCatsController < ApplicationController
     #reset cart
     #save
     user = User.find(current_user.id)
-    order = user.orders.build
-    # order.cats.create
-    order.save
+    order = user.orders.create
+    session[:checkout_order].each do |cat_and_quantity|
+      order.order_cats.create(cat_id: cat_and_quantity[0]["id"], quantity: cat_and_quantity[1])
+    end
     redirect_to order_path(order.id)
+
 
   end
 
