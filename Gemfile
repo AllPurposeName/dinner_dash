@@ -30,18 +30,18 @@ gem 'bootstrap-sass', '~> 3.3.2'
 
 gem 'autoprefixer-rails'
 
+gem 'cancancan'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# gem 'rails_12factor', group: :production
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'capybara'
   gem 'launchy'
-  gem 'cancancan'
   gem 'pry'
   gem 'byebug'
   gem 'factory_girl_rails', "~> 4.0"
@@ -51,6 +51,4 @@ group :development, :test do
   gem 'rspec-rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem 'capybara'
-  gem 'launchy'
 end
