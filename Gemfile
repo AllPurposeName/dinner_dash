@@ -30,6 +30,7 @@ gem 'bootstrap-sass', '~> 3.3.2'
 
 gem 'autoprefixer-rails'
 
+gem 'cancancan'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -41,7 +42,6 @@ gem 'rails_12factor', group: :production
 group :development, :test do
   gem 'capybara'
   gem 'launchy'
-  gem 'cancancan'
   gem 'pry'
   gem 'byebug'
   gem 'factory_girl_rails', "~> 4.0"
