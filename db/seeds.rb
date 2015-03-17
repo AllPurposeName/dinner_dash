@@ -29,19 +29,19 @@ User.create([
     password: "poop",
     role: 1,
     full_name: "Tino E",
-    email: "fredrules@gmail.com" }
+    email: "fredrules@gmail.com" },
 
   { username: "j3",
     password: "password",
     role: 0,
     full_name: "Jeff Casimir",
-    email: "demo+jeff@jumpstartlab.com" }
+    email: "demo+jeff@jumpstartlab.com" },
 
   { username: "novohispano",
     password: "password",
     role: 0,
     full_name: "Jorge Tellez",
-    email: "demo+jorge@jumpstartlab.com" }
+    email: "demo+jorge@jumpstartlab.com" },
 
   { username: "josh",
     password: "password",
@@ -60,11 +60,11 @@ Breed.create([
 
   { name: "oncilla",
     retired: false,
-    description: "This small spotted cat's meat is lean and tender. Goes great between two slices of our signature Rye bread." }
+    description: "This small spotted cat's meat is lean and tender. Goes great between two slices of our signature Rye bread." },
 
   { name: "oriental shorthair",
     retired: false,
-    description: "Like the Siamese, Oriental Shorthairs have almond-shaped eyes, a triangular head shape, large ears, and an elongated, slender, and muscular body. Excellent for an appetizer." }
+    description: "Like the Siamese, Oriental Shorthairs have almond-shaped eyes, a triangular head shape, large ears, and an elongated, slender, and muscular body. Excellent for an appetizer." },
 
   { name: "black cat",
     retired: false,
