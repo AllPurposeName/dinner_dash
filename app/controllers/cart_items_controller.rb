@@ -4,6 +4,7 @@ class CartItemsController < ApplicationController
   def show
     cats = []
     quantity = []
+    if params[:cart_contents]
     params[:cart_contents].each do |cats_and_quantity|
       quantity << cats_and_quantity[1].to_i
       cats << Cat.find(cats_and_quantity[0])
@@ -11,6 +12,10 @@ class CartItemsController < ApplicationController
     @cats_and_quantity = cats.zip(quantity)
     session[:checkout_order] = @cats_and_quantity
     @total_price = total_price(@cats_and_quantity)
+    else
+      @cats_and_quantity = []
+      @total_price = 0
+    end
   end
 
   def create
