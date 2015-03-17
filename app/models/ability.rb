@@ -3,7 +3,6 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    order ||= Order.new
     if user.default?
       can :read, User, id: user.id
       can :read, Order

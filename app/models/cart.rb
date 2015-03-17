@@ -21,7 +21,8 @@ attr_reader :contents, :cats_and_quantity, :total_price
 
   def create_order_cats(order)
     cats_and_quantity.each do |cat_and_quantity|
-      order.order_cats.create(cat_id: cat_and_quantity[0]["id"], quantity: cat_and_quantity[1])
+      order.order_cats.create(cat_id: cat_and_quantity[0]["id"],
+                              quantity: cat_and_quantity[1])
     end
   end
 
@@ -31,7 +32,6 @@ attr_reader :contents, :cats_and_quantity, :total_price
     set_cats_and_quantity
     sum_price
   end
-
 
   def set_cats_and_quantity
     cats = []

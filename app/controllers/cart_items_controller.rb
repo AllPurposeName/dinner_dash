@@ -2,10 +2,10 @@ class CartItemsController < ApplicationController
 
   def show
     if @cart.cats_and_quantity
-        @cart
+      @cart
       render :show
     else
-        flash[:emptycart] = "You're cart is empty, fill it with some kittens plz"
+      flash[:emptycart] = "You're cart is empty, fill it with some kittens plz"
       redirect_to root_path
     end
   end
