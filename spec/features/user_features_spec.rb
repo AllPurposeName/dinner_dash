@@ -47,7 +47,11 @@ describe "authenticated user" do
 
   it "Can view their orders" do 
     cat = create(:cat)
-    user = User.create(role: 0, username: "guy", password: "pass", full_name: "DJ G", email: "example@example.com",)
+    user = User.create(role: 0, 
+                       username: "guy", 
+                       password: "pass", 
+                       full_name: "DJ G", 
+                       email: "example@example.com")
     visit login_path
     fill_in "session[username]", with: "guy"
     fill_in "session[password]", with: "pass"
