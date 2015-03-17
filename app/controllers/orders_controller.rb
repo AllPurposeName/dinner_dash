@@ -1,7 +1,10 @@
 class OrdersController < ApplicationController
 
-def show
+  def index
+    @orders = current_user.orders
+  end
 
-end
+  def show
+  end
 
 end
