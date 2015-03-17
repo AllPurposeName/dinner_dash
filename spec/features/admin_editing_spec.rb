@@ -65,6 +65,18 @@ describe "admin editing mode" do
       end
       expect(current_path).to eq("/admin/cats/#{cat.id}/edit")
     end
+
+    it "changes all different types of names" do
+      create(:user, role: 1)
+      cat = create(:cat, name: "Percival")
+      visit edit_admin_cat_path(cat)
+
+      fill_in "edit name", with: "Perci the cat"
+      click_link_or_button("Submit")
+      within("#flash-editcomplete") do
+        expect(page).to have_content("Perci the cat edited!")
+      end
+    end
     it "allows admin to change image" do
       # 064
       # As an Admin
