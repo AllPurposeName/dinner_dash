@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/order/:id', to: "orders#show", as: "order"
   delete '/cart_items', to: "cart_items#delete"
   get "/orders", to: "orders#index"
+  get "/logout", to: "sessions#logout"
 
   namespace :admin do
     resources :inventory, only: [:index]
