@@ -1,13 +1,13 @@
 <table>
-  <tr>
-    <th>Name &nbsp; &nbsp; &nbsp;</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Quantity</th>
-    <th>Total Price</th>
-  </tr>
+<tr>
+  <th>Name &nbsp; &nbsp; &nbsp;</th>
+  <th>Description</th>
+  <th>Price</th>
+  <th>Quantity</th>
+  <th>Total Price</th>
+</tr>
 
-   <% @cats_and_quantity.each do |cat| %>
+<% @cats_and_quantity.each do |cat| %>
   <tr>
     <td><%= cat[0].name %></td>
     <td><%= cat[0].description %></td>
@@ -15,15 +15,17 @@
     <td><%= cat[1]%></td>
     <td><%= cat[1] * cat[0].price %></td>
   </tr>
-  <% end %>
-  <tr>
-    <td> <%=  %> </td>
-    <td> <%=  %> </td>
-    <td> <%=  %> </td>
-    <td> <%=  %> </td>
-    <td> <%= @total_price %> </td>
-  </tr>
+<% end %>
+<tr>
+  <td> <%=  %> </td>
+  <td> <%=  %> </td>
+  <td> <%=  %> </td>
+  <td> <%=  %> </td>
+  <td> <%= @total_price %> </td>
+</tr>
 </table>
 
-<%= button_to "checkout", order_cats_path %>
+<% if @cats_and_quantity != [] %>
+  <%= button_to "checkout", order_cats_path %>
+<% end %>
 <%= link_to "continue", breeds_path %>
