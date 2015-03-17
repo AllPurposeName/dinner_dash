@@ -42,7 +42,6 @@ describe "authenticated user" do
     click_link_or_button("checkout")
     expect(user.orders.count).to eq(1)
     expect(user.orders.first.cats.count).to eq(1)
-
   end
 
   it "Can view their orders" do 
