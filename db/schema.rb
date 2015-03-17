@@ -25,11 +25,6 @@ ActiveRecord::Schema.define(version: 20150316232131) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "cat_breeds", force: :cascade do |t|
     t.integer  "cat_id"
     t.integer  "breed_id"
@@ -46,15 +41,6 @@ ActiveRecord::Schema.define(version: 20150316232131) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
-
-  create_table "cats_orders", id: false, force: :cascade do |t|
-    t.integer "order_id",             null: false
-    t.integer "cat_id",               null: false
-    t.integer "quantity", default: 1
-  end
-
-  add_index "cats_orders", ["cat_id", "order_id"], name: "index_cats_orders_on_cat_id_and_order_id", using: :btree
-  add_index "cats_orders", ["order_id", "cat_id"], name: "index_cats_orders_on_order_id_and_cat_id", using: :btree
 
   create_table "order_cats", force: :cascade do |t|
     t.integer  "cat_id"
