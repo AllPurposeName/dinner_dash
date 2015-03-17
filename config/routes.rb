@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post '/cart_items', to: "cart_items#create"
   get '/cart_items', to: "cart_items#show", as: "cart"
   post '/order_cats', to: "order_cats#create"
+  get '/order/:id', to: "orders#show", as: "order"
   delete '/cart_items', to: "cart_items#delete"
 
   namespace :admin do
