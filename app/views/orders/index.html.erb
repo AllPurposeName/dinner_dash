@@ -1,4 +1,5 @@
-<% @orders.each do |order|  %>
+<% @orders.each_with_index do |order, index|  %>
+  <h1>Order #<%= index+1 %></h1>
   <table>
     <tr>
       <th>Name &nbsp; &nbsp; &nbsp;</th>
@@ -18,10 +19,10 @@
       </tr>
     <% end %>
     <tr>
-      <td> <%=  %> </td>
-      <td> <%=  %> </td>
-      <td> <%=  %> </td>
-      <td> <%=  %> </td>
+      <td> TOTAL PRICE </td>
+      <td></td>
+      <td></td>
+      <td></td>
       <td> <%= order.total_price %> </td>
     </tr>
   </table>
