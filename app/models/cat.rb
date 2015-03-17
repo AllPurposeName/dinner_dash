@@ -21,4 +21,8 @@ class Cat < ActiveRecord::Base
       "Sold out!"
     end
   end
+
+  def quantity(order_id)
+    Order.find(order_id).order_cats.find_by(cat_id: id).quantity
+  end
 end

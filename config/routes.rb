@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post '/order_cats', to: "order_cats#create"
   get '/order/:id', to: "orders#show", as: "order"
   delete '/cart_items', to: "cart_items#delete"
+  get "/orders", to: "orders#index"
 
   namespace :admin do
     resources :inventory, only: [:index]

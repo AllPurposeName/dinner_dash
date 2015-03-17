@@ -1,0 +1,30 @@
+<% @orders.each do |order|  %>
+  <table>
+    <tr>
+      <th>Name &nbsp; &nbsp; &nbsp;</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total Price</th>
+    </tr>
+
+    <% order.cats.each do |cat| %>
+      <tr>
+        <td><%= cat.name %></td>
+        <td><%= cat.description %></td>
+        <td><%= cat.price %></td>
+        <td><%= cat.quantity(order.id) %></td>
+        <td><%= cat.quantity(order.id) * cat.price %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td> <%=  %> </td>
+      <td> <%=  %> </td>
+      <td> <%=  %> </td>
+      <td> <%=  %> </td>
+      <td> <%= order.total_price %> </td>
+    </tr>
+  </table>
+
+
+<% end %>
