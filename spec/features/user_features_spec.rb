@@ -51,7 +51,6 @@ describe "authenticated user" do
     order = user.orders.create(status: 0)
     order.order_cats.create(cat_id: cat.id, quantity: 2)
     visit orders_path
-    save_and_open_page
     expect(page).to have_content(cat.name)
   end
 end
