@@ -18,8 +18,8 @@ class Breed < ActiveRecord::Base
   end
 
   def update_some_attributes(breed_info)
-    breed_info.each { |attr_hash| self.update_attribute(attr_hash[0].to_sym, attr_hash[1].humanize) }
+    breed_info.each do |attr_hash|
+      update_attribute(attr_hash[0].to_sym, attr_hash[1].humanize)
+    end
   end
-
-
 end

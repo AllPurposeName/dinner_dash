@@ -1,7 +1,6 @@
 class Admin::BreedsController < ApplicationController
   before_action :set_breed, only: [:edit, :update]
   def edit
-    binding.pry
   end
 
   def update
