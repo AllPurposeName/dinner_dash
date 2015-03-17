@@ -1,6 +1,6 @@
 class Cat < ActiveRecord::Base
   include ActiveModel::Validations
-
+  include AttributeUpdater
   has_many :cat_breeds
   has_many :breeds, through: :cat_breeds
   has_many :order_cats
@@ -21,7 +21,4 @@ class Cat < ActiveRecord::Base
       "Sold out!"
     end
   end
-
-
-
 end

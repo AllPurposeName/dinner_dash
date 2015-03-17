@@ -4,13 +4,10 @@ class Admin::BreedsController < ApplicationController
   end
 
   def update
-    if @breed.update_some_attributes(params[:breed])
-      flash[:editcomplete] = "#{@breed.name.humanize} edited!"
-      redirect_to edit_admin_breed_path(@breed.to_param)
-    else
-      flash[:editfailed] = "Please try to edit again"
-      render :edit
-    end
+    params[:breed][:name].downcase
+    @breed.update_some_attributes(params[:breed])
+    flash[:editcomplete] = "#{@breed.name.humanize} edited!"
+    redirect_to edit_admin_breed_path(@breed.to_param)
   end
 
   private
