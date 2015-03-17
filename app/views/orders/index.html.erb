@@ -1,5 +1,6 @@
+<h1>Your Orders</h1>
 <% @orders.each_with_index do |order, index|  %>
-  <h1> <%= link_to "Order ##{index+1}", order_path(order.id) %> </h1>
+  <h2> <%= link_to "Order ##{index+1}", order_path(order.id) %> </h2>
   < table class="table table-hover"> 
     <tr>
       <th>Name &nbsp; &nbsp; &nbsp;</th>
