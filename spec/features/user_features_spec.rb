@@ -74,5 +74,6 @@ describe "authenticated user" do
     order.order_cats.create(cat_id: cat.id, quantity: 2)
     visit orders_path
     click_link_or_button("Order #1")
+    expect(current_path).to eq("/order/3")
   end
 end

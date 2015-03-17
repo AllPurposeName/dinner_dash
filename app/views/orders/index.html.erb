@@ -1,5 +1,5 @@
 <% @orders.each_with_index do |order, index|  %>
-  <h1>Order #<%= index+1 %></h1>
+  <h1> <%= link_to "Order ##{index+1}", order_path(order.id) %> </h1>
   <table>
     <tr>
       <th>Name &nbsp; &nbsp; &nbsp;</th>
