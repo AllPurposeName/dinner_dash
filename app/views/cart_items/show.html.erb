@@ -28,4 +28,4 @@
 <% if @cats_and_quantity != [] %>
   <%= button_to "checkout", order_cats_path %>
 <% end %>
-<%= button_to "continue", breeds_path %>
+<%= button_to "continue", breeds_path, method: :get %>
