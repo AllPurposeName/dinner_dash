@@ -30,7 +30,7 @@
           <li><%= link_to "home", root_path %></li>
           <li><%= link_to "cart", cart_path %></li>
           <li><%= link_to "breeds", breeds_path %></li>
-          <li><a href="#">orders</a></li>
+          <li><%= link_to "orders", orders_path %></li>
           <li><%= link_to "login", login_path %></li>
 
           <% if @current_user.nil? %>
