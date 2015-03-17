@@ -8,14 +8,11 @@ class Admin::CatsController < ApplicationController
 
   def update
     params[:cat][:name].downcase
-    if @cat.update_some_attributes(params[:cat])
-      flash[:editcomplete] = "#{@cat.name.humanize} edited!"
-      redirect_to edit_admin_cat_path(@cat.to_param)
-    else
-      flash[:editfailed] = "Please try to edit again"
-      render :edit
-    end
+    @cat.update_some_attributes(params[:cat])
+    flash[:editcomplete] = "#{@cat.name.humanize} edited!"
+    redirect_to edit_admin_cat_path(@cat.to_param)
   end
+  
   private
 
   def set_cat
