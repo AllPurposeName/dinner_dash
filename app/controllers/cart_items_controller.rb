@@ -9,6 +9,7 @@ class CartItemsController < ApplicationController
       cats << Cat.find(cats_and_quantity[0])
     end
     @cats_and_quantity = cats.zip(quantity)
+    session[:checkout_order] = @cats_and_quantity
     @total_price = total_price(@cats_and_quantity)
   end
 

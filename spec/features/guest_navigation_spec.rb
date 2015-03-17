@@ -145,6 +145,6 @@ describe "Guests can browse for their meal" do
       click_link_or_button("random name")
       expect(current_path).to eq("/cats/#{cat.id}")
     end
- 
+
   end
 end
