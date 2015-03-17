@@ -36,6 +36,8 @@ gem 'autoprefixer-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# gem 'rails_12factor', group: :production
+
 group :development, :test do
   gem 'capybara'
   gem 'launchy'
