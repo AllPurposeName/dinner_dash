@@ -23,7 +23,7 @@ describe "authenticated user" do
 
   it "is able to checkout their cart" do
     cat = create(:cat)
-    user = User.create(role: 0, 
+    user = User.create(role: 0,
                        username: "guy", 
                        password: "pass", 
                        full_name: "DJ G", 
