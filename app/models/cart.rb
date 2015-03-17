@@ -6,8 +6,8 @@ attr_reader :contents
   end
 
   def add_to_cart(cat)
-    @contents[cat] ||= 0
-    @contents[cat] += 1
+    @contents[cat.to_s] ||= 0
+    @contents[cat.to_s] += 1
   end
 
   def remove_from_cart(cat)
