@@ -12,18 +12,30 @@ describe "admin editing mode" do
       # And I see the edited breed with it"s new name and description
       create(:user, role: 1)
       breed = create(:breed)
-      visit edit_admin_breed_path(breed.to_param)
+      visit edit_admin_breed_path(breed)
 
-      fill_in "edit name", with: "test_name"
+      fill_in "edit name", with: "TEst_name"
       fill_in "edit description", with: "test_description"
       fill_in "edit image_path", with: "test_image_path"
       fill_in "edit retired", with: true
       click_link_or_button("Submit")
 
       within("#flash-editcomplete") do
-        expect(page).to have_content("Test name edited!")
+        expect(page).to have_content("Test Name edited!")
       end
       expect(current_path).to eq("/admin/breeds/test_name/edit")
+    end
+
+    it "changes all different types of names" do
+      create(:user, role: 1)
+      breed = create(:breed, name: "Percifolus gamatron")
+      visit edit_admin_breed_path(breed)
+
+      fill_in "edit name", with: "name_test"
+      click_link_or_button("Submit")
+      within("#flash-editcomplete") do
+        expect(page).to have_content("Name test edited!")
+      end
     end
     it "allows admin to change image" do
       # 060
