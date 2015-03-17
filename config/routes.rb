@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :inventory, only: [:index]
-    resources :breeds, only: [:edit]
+    resources :breeds, only: [:edit, :update]
     resources :cats, only: [:edit]
   end
 end

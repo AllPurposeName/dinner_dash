@@ -1,4 +1,4 @@
-<%= form_for(@breed) do |f| %>
+<%= form_for([:admin, @breed]) do |f| %>
   <%= f.label :name, "edit name" %>
   <%= f.text_field :name %>
 

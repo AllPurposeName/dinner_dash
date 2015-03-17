@@ -14,7 +14,12 @@ class Breed < ActiveRecord::Base
   end
 
   def to_param
-    "#{(name.parameterize)}"
+    "#{(name.parameterize.underscore)}"
   end
 
+  def update_some_attributes(breed_info)
+    breed_info.each do |attr_hash|
+      update_attribute(attr_hash[0].to_sym, attr_hash[1].humanize)
+    end
+  end
 end

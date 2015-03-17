@@ -91,14 +91,14 @@ describe "Guests can browse for their meal" do
       # When I visit "/breeds"
       # Then I see a list of breeds each with picture and name
 
-      create_list :breed, 3
+      breed_list = create_list :breed, 3
 
       visit root_path
       click_link_or_button("breeds")
       expect(current_path).to eq("/breeds")
-      expect(page).to have_content("Breed 1")
-      expect(page).to have_content("Breed 2")
-      expect(page).to have_content("Breed 3")
+      expect(page).to have_content("#{breed_list.first.name}")
+      expect(page).to have_content("#{breed_list[1].name}")
+      expect(page).to have_content("#{breed_list.last.name}")
     end
 
     it "links to individual breeds" do
