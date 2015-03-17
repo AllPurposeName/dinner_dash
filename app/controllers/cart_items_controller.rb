@@ -1,19 +1,12 @@
 class CartItemsController < ApplicationController
 
   def show
-    cats = []
-    quantity = []
-    if session[:cart_data]
-    session[:cart_data].each do |cats_and_quantity|
-      quantity << cats_and_quantity[1].to_i
-      cats << Cat.find(cats_and_quantity[0])
-    end
-    @cats_and_quantity = cats.zip(quantity)
-    session[:checkout_order] = @cats_and_quantity
-    @total_price = total_price(@cats_and_quantity)
+    if @cart.cats_and_quantity
+        @cart
+      render :show
     else
-      @cats_and_quantity = []
-      @total_price = 0
+        flash[:emptycart] = "You're cart is empty, fill it with some kittens plz"
+      redirect_to root_path
     end
   end
 
@@ -29,10 +22,5 @@ class CartItemsController < ApplicationController
     redirect_to cart_path(cart_contents: @cart.contents)
   end
 
-  def total_price(c_and_q)
-    c_and_q.inject(0) do |sum, item|
-      sum += (item[0].price * item[1])
-      sum
-    end
-  end
+
 end
