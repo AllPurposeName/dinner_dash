@@ -1,5 +1,25 @@
 class Admin::BreedsController < ApplicationController
   before_action :set_breed, only: [:edit, :update]
+
+  def show
+
+  end
+
+  def new
+    @breed = Breed.new
+  end
+
+  def create
+    @breed = Breed.new(breed_params)
+    if @breed.save
+      flash[:newcomplete] = "#{@breed.name.humanize} created!"
+      redirect_to admin_breed_path(@breed)
+    else
+      flash[:newfail] = "Please fill every field in with a valid entry"
+      render :new
+    end
+  end
+
   def edit
   end
 
@@ -9,6 +29,11 @@ class Admin::BreedsController < ApplicationController
     flash[:editcomplete] = "#{@breed.name.humanize} edited!"
     redirect_to edit_admin_breed_path(@breed.to_param)
   end
+
+  def breed_params
+    params.require(:breed).permit(:name, :description, :image_path, :retired)
+  end
+
 
   private
 

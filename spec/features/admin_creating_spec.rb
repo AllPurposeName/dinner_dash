@@ -13,14 +13,14 @@ describe "admin creating mode" do
       create(:user, role: 1)
       visit new_admin_breed_path
 
-      fill_in "new name", with: "TEst_new_name"
-      fill_in "new description", with: "test_new_description"
-      fill_in "new image_path", with: "test_new_image_path"
-      fill_in "new retired", with: true
+      fill_in "enter name", with: "TEst_new_name"
+      fill_in "enter description", with: "test_new_description"
+      fill_in "enter image_path", with: "test_new_image_path"
+      fill_in "enter retired", with: true
       click_link_or_button("Create")
 
       within("#flash-newcomplete") do
-        expect(page).to have_content("Test name created!")
+        expect(page).to have_content("Test new name created!")
       end
       expect(current_path).to eq("/admin/breeds/test_new_name")
     end
