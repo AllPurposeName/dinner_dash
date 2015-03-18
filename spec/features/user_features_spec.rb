@@ -22,9 +22,9 @@ describe "authenticated user" do
   it "is able to checkout their cart" do
     cat = create(:cat)
     user = User.create(role: 0,
-                       username: "guy", 
-                       password: "pass", 
-                       full_name: "DJ G", 
+                       username: "guy",
+                       password: "pass",
+                       full_name: "DJ G",
                        email: "example@example.com",)
     visit login_path
     fill_in "session[username]", with: "guy"
@@ -42,12 +42,12 @@ describe "authenticated user" do
     expect(user.orders.first.cats.count).to eq(1)
   end
 
-  it "Can view their orders" do 
+  it "Can view their orders" do
     cat = create(:cat)
-    user = User.create(role: 0, 
-                       username: "guy", 
-                       password: "pass", 
-                       full_name: "DJ G", 
+    user = User.create(role: 0,
+                       username: "guy",
+                       password: "pass",
+                       full_name: "DJ G",
                        email: "example@example.com")
     visit login_path
     fill_in "session[username]", with: "guy"
@@ -61,10 +61,10 @@ describe "authenticated user" do
 
   it "can view an order from order index" do
     cat = create(:cat)
-    user = User.create(role: 0, 
-                       username: "guy", 
-                       password: "pass", 
-                       full_name: "DJ G", 
+    user = User.create(role: 0,
+                       username: "guy",
+                       password: "pass",
+                       full_name: "DJ G",
                        email: "example@example.com")
     visit login_path
     fill_in "session[username]", with: "guy"
@@ -74,15 +74,15 @@ describe "authenticated user" do
     order.order_cats.create(cat_id: cat.id, quantity: 2)
     visit orders_path
     click_link_or_button("Order #1")
-    expect(current_path).to eq("/order/3")
+    expect(current_path).to eq("/orders/3")
   end
 
   it "can view the order indivually and you can see all of the info for that order" do
     cat = create(:cat)
-    user = User.create(role: 0, 
-                       username: "guy", 
-                       password: "pass", 
-                       full_name: "DJ G", 
+    user = User.create(role: 0,
+                       username: "guy",
+                       password: "pass",
+                       full_name: "DJ G",
                        email: "example@example.com")
     visit login_path
     fill_in "session[username]", with: "guy"
@@ -92,7 +92,6 @@ describe "authenticated user" do
     order.order_cats.create(cat_id: cat.id, quantity: 2)
     visit orders_path
     click_link_or_button("Order #1")
-    save_and_open_page
     within("table") do
       expect(page).to have_content(cat.name)
     end

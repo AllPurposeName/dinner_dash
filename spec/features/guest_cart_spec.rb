@@ -33,7 +33,6 @@ describe "guest can use a cart" do
     click_link_or_button("add to cart")
     visit "/cats/#{kitty.id}"
     click_link_or_button("remove from cart")
-    save_and_open_page
     expect(page).not_to have_content("kitty")
   end
 
