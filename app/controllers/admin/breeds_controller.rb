@@ -16,7 +16,7 @@ class Admin::BreedsController < ApplicationController
       redirect_to admin_breed_path(@breed)
     else
       flash[:newfail] = "Please fill every field in with a valid entry"
-      render :new
+      redirect_to new_admin_breed_path
     end
   end
 

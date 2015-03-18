@@ -25,15 +25,14 @@ describe "admin creating mode" do
       expect(current_path).to eq("/admin/breeds/test_new_name")
     end
 
-    xit "doesn't allow the admin to not fill in any fields" do
+    it "doesn't allow the admin to not fill in any fields" do
       create(:user, role: 1)
-      breed = create(:breed, name: "Percifolus gamatron")
-      visit edit_admin_breed_path(breed)
+      visit new_admin_breed_path
 
-      fill_in "edit name", with: "name_test"
-      click_link_or_button("Submit")
-      within("#flash-editcomplete") do
-        expect(page).to have_content("Name test edited!")
+      fill_in "enter name", with: "TEst_fail_name"
+      click_link_or_button("Create")
+      within("#flash-newfail") do
+        expect(page).to have_content("Please fill every field in with a valid entry")
       end
     end
   end
