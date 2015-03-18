@@ -38,7 +38,7 @@ describe "admin creating mode" do
   end
 
   context "for individual cats" do
-    xit "allows admin to change name and description" do
+    it "allows admin to create a cat" do
       # 063
       # As an Admin
       # When I visit "/admin/cats/:id/edit"
@@ -48,21 +48,20 @@ describe "admin creating mode" do
       # Then I am redirected to that cat"s page
       # And I see the edited cat with it"s new name and description
       # fill_in "edit price", with: "test-description"
-      create(:user, role: 1)
-      cat = create(:cat, name: "garfield")
-      visit edit_admin_cat_path(cat)
+      visit new_admin_cat_path
 
-      fill_in "edit name", with: "TEst_name"
-      fill_in "edit description", with: "test_description"
-      fill_in "edit price", with: 10000
-      fill_in "edit image_path", with: "test_image_path"
-      fill_in "edit retired", with: true
-      click_link_or_button("Submit")
+      fill_in "enter name", with: "TEst_new name"
+      fill_in "enter description", with: "test_new_description"
+      fill_in "enter price", with: 1000
+      fill_in "enter image_path", with: "test_new_image_path"
+      fill_in "enter retired", with: true
+      click_link_or_button("Create")
 
-      within("#flash-editcomplete") do
-        expect(page).to have_content("Test name edited!")
+      within("#flash-newcomplete") do
+        expect(page).to have_content("Test new name created!")
       end
-      expect(current_path).to eq("/admin/cats/#{cat.id}/edit")
+      cat = Cat.find_by(name: "TEst_new name")
+      expect(current_path).to eq("/admin/cats/#{cat.id}")
     end
 
     xit "changes all different types of names" do
