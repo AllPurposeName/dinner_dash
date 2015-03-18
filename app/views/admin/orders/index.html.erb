@@ -7,10 +7,12 @@
   <th>Updated At</th>
 </tr>
 <% Order.all.each do |order| %>
-  <td><%= order.id %></td>
-  <td><%= order.user.username %></td>
-  <td><%= order.status %></td>
-  <td><%= order.created_at.strftime('%A, %d %b') %></td>
-  <td><%= order.updated_at.strftime('%A, %d %b') %></td>
+    <tr data=<%=order.status%>>
+      <td><%= order.id %></td>
+      <td><%= order.user.username %></td>
+      <td><%= order.status %></td>
+      <td><%= order.created_at.strftime('%A, %d %b') %></td>
+      <td><%= order.updated_at.strftime('%A, %d %b') %></td>
+    </tr>
 <% end %>
 </table>
