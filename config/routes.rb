@@ -17,5 +17,6 @@ Rails.application.routes.draw do
     resources :inventory, only: [:index]
     resources :breeds, except: [:index]
     resources :cats, except: [:index]
+    resources :orders, only: [:index]
   end
 end
