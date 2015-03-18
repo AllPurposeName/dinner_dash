@@ -6,9 +6,8 @@
   padding-right: 50px;
 }
 
-.navbar-default {
-  background-color: red;
-  border-color: #e7e7e7;
+.navbar.navbar-default.navbar-fixed-top {
+  background-color: rgba(50,50,50,1);
 }
 
 .navbar-default .navbar-nav > li > a  {
@@ -18,8 +17,4 @@
 
 .font_test {
   font-family: 'Comfortaa', Arial, serif; font-weight: 400;
-}
-
-#nav_cat  {
-  background-color: rgba(50,50,50,0.2);
 }
