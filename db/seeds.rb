@@ -6,6 +6,65 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+  def random_first_name
+    [:first_name, :prefix].sample
+  end
+
+  def random_last_name
+    [:last_name, :first_name, :suffix].sample
+  end
+
+  def cat_first_name
+    (Faker::Name.send(random_first_name)
+  end
+
+  def cat_last_name
+    Faker::Name.send(random_last_name
+  end
+
+  def cat_full_name
+    "#{cat_first_name} #{cat_last_name}"))
+  end
+
+  15.times do |iteration|
+    User.all.random.order.create(
+      { status: [(1..3)].sample })
+
+  def breed_name
+    if @breed_list
+      breed_list
+    else
+      breed_list_populate
+    end
+  end
+
+  def breed_name
+    @breed_list.shuffle.pop
+  end
+
+  def breed_listing
+    @breed_list = ["Donskoy", "American Bobtail",
+   "Havanna Brown", "Ocicat",
+   "Oriental Shorthair", "Savannah",
+   "Australian Mist", "British Shorthair",
+   "Cyprus", "Russian Black"]
+ end
+  breeds = 10.times do |iteration|
+    Breed.create({name: breed_name,
+                  retired: false
+                  description: Faker::Lorem.sentences(7))}
+
+  40.times do |iteration|
+    breeds.sample.cats.create({
+              name: cat_name,
+              price: ((1..50).to_a.sample.to_s + "00").to_i,
+              retired: false,
+              description: Faker::Loren.sentences(10),
+              image_path: "place_holder"
+              })
+  exit
+  
+
 User.create([
   { username:"dj",
     password: "dj",

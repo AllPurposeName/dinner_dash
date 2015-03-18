@@ -40,6 +40,7 @@ gem 'cancancan'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
+  gem 'faker'
   gem 'capybara'
   gem 'launchy'
   gem 'pry'

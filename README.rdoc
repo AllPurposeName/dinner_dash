@@ -1,5 +1,4 @@
 MUST BE COMPLETED:
-Admin Order Index page
 Admin Order View
 Current Order Status
 Admin Setting Order Status
@@ -21,10 +20,9 @@ Order must have cats
 
 
 ----- Today March 18th, 2015 -----
-DONE Changing Order Status to Enum role (edited)
-
+DONE : Admin Order Index page
+DONE : Changing Order Status to Enum role (edited)
 DONE : Create cats and breeds (edited)
-
 DONE : Link to each Cat from Order (edited)
 
 
