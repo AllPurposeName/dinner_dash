@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
   has_many :order_cats
   has_many :cats, through: :order_cats
 
+  enum status: %w(ordered paid completed cancelled)
+
   def total_price
     order_cats.inject(0) do |total, transaction|
       total + (transaction.quantity * transaction.cat.price)
