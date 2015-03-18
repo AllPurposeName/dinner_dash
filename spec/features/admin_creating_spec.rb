@@ -64,15 +64,14 @@ describe "admin creating mode" do
       expect(current_path).to eq("/admin/cats/#{cat.id}")
     end
 
-    xit "changes all different types of names" do
+    it "changes all different types of names" do
       create(:user, role: 1)
-      cat = create(:cat, name: "Percival")
-      visit edit_admin_cat_path(cat)
+      visit new_admin_cat_path
 
-      fill_in "edit name", with: "Perci the cat"
-      click_link_or_button("Submit")
-      within("#flash-editcomplete") do
-        expect(page).to have_content("Perci the cat edited!")
+      fill_in "enter name", with: "Perci the cat"
+      click_link_or_button("Create")
+      within("#flash-newfail") do
+        expect(page).to have_content("Please fill every field in with a valid entry")
       end
     end
   end
