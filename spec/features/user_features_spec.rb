@@ -74,7 +74,7 @@ describe "authenticated user" do
     order.order_cats.create(cat_id: cat.id, quantity: 2)
     visit orders_path
     click_link_or_button("Order #1")
-    expect(current_path).to eq("/order/3")
+    expect(current_path).to eq("/orders/3")
   end
 
   it "can view the order indivually and you can see all of the info for that order" do
