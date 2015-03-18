@@ -1,0 +1,15 @@
+<%= form_for([:admin, @breed]) do |f| %>
+  <%= f.label :name, "enter name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description, "enter description" %>
+  <%= f.text_field :description %>
+
+  <%= f.label :image_path, "enter image_path" %>
+  <%= f.text_field :image_path %>
+
+  <%= f.label :retired, "enter retired" %>
+  <%= f.text_field :retired %>
+
+  <%= f.submit "Create" %>
+<% end %>

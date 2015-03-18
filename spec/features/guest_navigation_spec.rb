@@ -36,7 +36,6 @@ describe "Guests can browse for their meal" do
                      retired: false)
 
       visit root_path
-      # save_and_open_page
       click_link_or_button("breed_sabertooth")
 
       expect(current_path).to eq("/breeds/sabertooth")
@@ -46,7 +45,6 @@ describe "Guests can browse for their meal" do
       end
       within "#breed-single" do
         expect(page).to have_content("Sabertooth")
-        expect(page).to have_css("img[src*='sabertooth']")
         expect(page).to have_content("A long fanged feline for your long suffering appetite!")
       end
     end
@@ -111,7 +109,6 @@ describe "Guests can browse for their meal" do
       breeds = create_list :breed, 3
       # binding.pry
       visit breeds_path
-      # save_and_open_page
       click_link_or_button(breeds[0].name)
       expect(current_path).to eq("/breeds/#{breeds[0].name.gsub(" ", "%20")}")
 

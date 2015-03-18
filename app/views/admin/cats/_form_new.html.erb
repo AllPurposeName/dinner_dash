@@ -1,0 +1,18 @@
+<%= form_for([:admin, @cat]) do |f| %>
+  <%= f.label :name, "enter name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description, "enter description" %>
+  <%= f.text_field :description %>
+
+  <%= f.label :price, "enter price" %>
+  <%= f.text_field :price %>
+
+  <%= f.label :image_path, "enter image_path" %>
+  <%= f.text_field :image_path %>
+
+  <%= f.label :retired, "enter retired" %>
+  <%= f.text_field :retired %>
+
+  <%= f.submit "Create" %>
+<% end %>
