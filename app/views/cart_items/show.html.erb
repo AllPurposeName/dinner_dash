@@ -7,7 +7,7 @@
   <th>Total Price</th>
 </tr>
 
-<% @cats_and_quantity.each do |cat| %>
+<% @cart.cats_and_quantity.each do |cat| %>
   <tr>
     <td><%= cat[0].name %></td>
     <td><%= cat[0].description %></td>
@@ -21,11 +21,11 @@
   <td> <%=  %> </td>
   <td> <%=  %> </td>
   <td> <%=  %> </td>
-  <td> <%= @total_price %> </td>
+  <td> <%= @cart.total_price %> </td>
 </tr>
 </table>
 
-<% if @cats_and_quantity != [] %>
+<% if @cart.cats_and_quantity != [] %>
   <%= button_to "checkout", order_cats_path %>
 <% end %>
-<%= button_to "continue", breeds_path %>
+<%= button_to "continue", breeds_path, method: :get %>

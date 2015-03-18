@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  include ResetCart
 
   def new
 
@@ -6,6 +7,7 @@ class SessionsController < ApplicationController
 
   def logout
     session[:user_id] = nil
+    reset_cart
     redirect_to root_path
   end
 
