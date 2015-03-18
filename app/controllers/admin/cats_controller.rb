@@ -30,7 +30,11 @@ class Admin::CatsController < ApplicationController
   end
 
   def cat_params
-    params.require(:cat).permit(:name, :description, :image_path, :retired, :price)
+    params.require(:cat).permit(:name,
+                                :description,
+                                :image_path,
+                                :retired,
+                                :price)
   end
 
   private

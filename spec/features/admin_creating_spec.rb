@@ -32,7 +32,7 @@ describe "admin creating mode" do
       fill_in "enter name", with: "TEst_fail_name"
       click_link_or_button("Create")
       within("#flash-newfail") do
-        expect(page).to have_content("Please fill every field in with a valid entry")
+        expect(page).to have_content("fill every field in with a valid entry")
       end
     end
   end
@@ -71,7 +71,7 @@ describe "admin creating mode" do
       fill_in "enter name", with: "Perci the cat"
       click_link_or_button("Create")
       within("#flash-newfail") do
-        expect(page).to have_content("Please fill every field in with a valid entry")
+        expect(page).to have_content("Please fill every field in with a valid")
       end
     end
   end

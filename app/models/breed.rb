@@ -4,10 +4,8 @@ class Breed < ActiveRecord::Base
   has_many :cat_breeds
   has_many :cats, through: :cat_breeds
 
-  validates :name, length: { minimum: 2, maximum: 32 }
-  validates_uniqueness_of :name
+  validates :name, length: { minimum: 2, maximum: 32 }, uniqueness: true
   validates :description, presence: true
-
 
   def availability
     if !retired
