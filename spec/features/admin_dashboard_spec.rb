@@ -56,7 +56,7 @@ describe "admin dashboard" do
       # Then I am redirected to "/admin/cats/:id/edit"
       # And I see information for updating that particular cat
       admin
-      create(:cat, name: "brody")
+      brody = create(:cat, name: "brody")
 
       visit login_path
       fill_in "session[username]", with: "Adminguy"
@@ -64,7 +64,7 @@ describe "admin dashboard" do
       click_link_or_button("log in")
 
       click_link_or_button("edit_cat_brody")
-      expect(current_path).to eq("/admin/cats/1/edit")
+      expect(current_path).to eq("/admin/cats/#{brody.id}/edit")
       expect(page).to have_content("Brody")
       expect(page).to have_content("Description for Brody:")
       expect(page).to have_content("Price for Brody:")
