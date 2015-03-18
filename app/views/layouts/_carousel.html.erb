@@ -1,48 +1,46 @@
-<!-- Carousel      ============================================================== -->
+<div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
 
-	    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+	<!-- <ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
+	</ol> -->
 
-		    <!-- <ol class="carousel-indicators">
-		        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		        <li data-target="#myCarousel" data-slide-to="1"></li>
-		        <li data-target="#myCarousel" data-slide-to="2"></li>
-		        <li data-target="#myCarousel" data-slide-to="3"></li>
-		    </ol> -->
+  <div class="carousel-inner">
 
-		    <div class="carousel-inner">
-		        <div class="item active">
+    <div class="item active">
+    	<%= image_tag("cat_01.jpg", class: "img-responsive center-block" ) %>
+    	<!-- <div class="container">
+    		<div class="carousel-caption">
+      		<h1><a href="tel:+18442738446">844-2RETHINK</a></h1>
+      		<p><a class="btn  btn-default" href="mailto:eat@catatouille.com" role="button">EMAIL US</a></p>
+        </div>
+      </div> -->
+		</div>
 
-		          	<%= image_tag("cat_01.jpg", class: "img-responsive center-block" ) %>
-		          	<div class="container">
-		          		<div class="carousel-caption">
-	              		<h1><a href="tel:+18442738446">844-2RETHINK</a></h1>
-	              		<p><a class="btn  btn-default" href="mailto:eat@catatouille.com" role="button">EMAIL US</a></p>
-  			          </div>
-		            </div>
-          		</div>
-
-		        <div class="item">
-			        <img src="img/cat_02.jpg" class="img-responsive center-block" alt="Second slide">
-			        <div class="container">
-			          	<div class="carousel-caption">
-		              		<h1><a href="tel:+18442738446">844-2RETHINK</a></h1>
-		              		<p><a class="btn  btn-default" href="mailto:eat@catatouille.com" role="button">EMAIL US</a></p>
-		      			</div>
-			        </div>
-		        </div>
-
-		        <div class="item">
-		          	<img src="img/cat_03.jpg" class="img-responsive center-block" alt="Third slide">
-		          	<div class="container">
-			          	<div class="carousel-caption">
-		              		<h1><a href="tel:+18442738446">844-2RETHINK</a></h1>
-		              		<p><a class="btn  btn-default" href="mailto:eat@catatouille.com" role="button">EMAIL US</a></p>
-		      			</div>
-			        </div>
-		        </div>
+    <div class="item">
+      <%= image_tag("cat_02.jpg", class: "img-responsive center-block" ) %>
+      <!-- <div class="container">
+      	<div class="carousel-caption">
+      		<h1><a href="tel:+18442738446">844-2RETHINK</a></h1>
+      		<p><a class="btn  btn-default" href="mailto:eat@catatouille.com" role="button">EMAIL US</a></p>
 		    </div>
+      </div> -->
+    </div>
 
-		  <!--   <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-		    <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a> -->
+    <div class="item">
+      <%= image_tag("cat_03.jpg", class: "img-responsive center-block" ) %>
+    	<!-- <div class="container">
+      	<div class="carousel-caption">
+      		<h1><a href="tel:+18442738446">844-2RETHINK</a></h1>
+      		<p><a class="btn  btn-default" href="mailto:eat@catatouille.com" role="button">EMAIL US</a></p>
+			  </div>
+      </div> -->
+    </div>
 
-	    </div><!-- /.carousel -->
+  </div>
+
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>

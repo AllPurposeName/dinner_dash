@@ -1,19 +1,17 @@
+<%= render "layouts/carousel" %>
+
 <div id="breed-single">
 
-<h1> <%= @breed.name.capitalize %> </h1>
+  <h1> <%= @breed.name.capitalize %> </h1>
 
-<h2> <%= @breed.description.capitalize %> </h2>
+  <h2> <%= @breed.description.capitalize %> </h2>
 
-<img src="sabertooth_01.jpeg" alt="A giant Sabertooth being murdered by Nixon." />
+  <h3 id="status"> <%= @breed.availability %> </h3>
 
-<h3 id="status"> <%= @breed.availability %> </h3>
-
-<ul>
-
-  <% @cats.each do |cat| %>
-    <%= link_to "cat_#{cat.name}", cat_path(cat.id) %>
-  <% end %>
-
-</ul>
+  <ul>
+    <% @cats.each do |cat| %>
+      <%= link_to "cat_#{cat.name}", cat_path(cat.id) %>
+    <% end %>
+  </ul>
 
 </div>
