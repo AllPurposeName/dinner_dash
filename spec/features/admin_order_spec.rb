@@ -1,12 +1,7 @@
  require "rails_helper"
  describe "admin orders" do
    it "displays a list of orders and filter buttons" do
-     # 066
-     # As an Admin
-     # When I visit "/admin/orders"
-     # Then I see a list of orders with filter buttons to sort them
-     visit '/admin/orders'
-     save_and_open_page
+     visit "/admin/orders"
      expect(page).to have_content("order #1")
    end
    context "from '/admin/orders'" do
