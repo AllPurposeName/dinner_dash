@@ -9,10 +9,11 @@
   <th>Updated At</th>
 </tr>
 <% @orders.each do |order| %>
-  <tr class="orders" data-status="<%= order.status %>">
+  <% @current = order %>
+  <tr data-order="<%= order.id %>" class="orders" data-status="<%= order.status %>">
       <td><%= order.id %></td>
       <td><%= order.user.username %></td>
-      <td class="order_status"><%= order.status %></td>
+      <td class="order_status"><%= render "status", locals: {order: @current} %></td>
       <td><%= order.created_at.strftime('%A, %d %b') %></td>
       <td><%= order.updated_at.strftime('%A, %d %b') %></td>
     </tr>

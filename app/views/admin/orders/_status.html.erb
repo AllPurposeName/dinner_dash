@@ -1,0 +1,1 @@
+<%= select("order_" + @current.id.to_s, "change_status", [@current.status, "ordered", "paid", "completed", "cancelled"].uniq, {include_blank: false}) %>
