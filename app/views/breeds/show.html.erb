@@ -10,7 +10,7 @@
 
   <ul>
     <% @cats.each do |cat| %>
-      <%= link_to "cat_#{cat.name}", cat_path(cat.id) %>
+      <%= link_to "#{cat.name}", cat_path(cat.id) %>
     <% end %>
   </ul>
 
