@@ -1,6 +1,7 @@
 <div id="cat-single">
 
-<img src="<%= @cat.image_path %>" alt="<%@cat.breeds.first=%> cat looking delicious!" />
+
+<%= image_tag @cat.image_path, height: "800" %>
 
 <h1> <%= @cat.name.capitalize %>   </h1>
 
