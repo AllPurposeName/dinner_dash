@@ -2,13 +2,16 @@ class Admin::BreedsController < ApplicationController
   before_action :set_breed, only: [:edit, :update]
 
   def show
+    authorize! :create, Breed
   end
 
   def new
+    authorize! :create, Breed
     @breed = Breed.new
   end
 
   def create
+    authorize! :create, Breed
     @breed = Breed.new(breed_params)
     if @breed.save
       flash[:newcomplete] = "#{@breed.name.humanize} created!"
@@ -20,9 +23,11 @@ class Admin::BreedsController < ApplicationController
   end
 
   def edit
+    authorize! :create, Breed
   end
 
   def update
+    authorize! :create, Breed
     sanitize_breed_name
     @breed.update_some_attributes(params[:breed])
     flash[:editcomplete] = "#{@breed.name.humanize} edited!"

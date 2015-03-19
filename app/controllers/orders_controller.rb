@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    authorize! :read, Order
     @order = Order.find(params[:id])
   end
 

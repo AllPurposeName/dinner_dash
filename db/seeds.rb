@@ -68,7 +68,7 @@ User.create([
      "Havanna Brown", "Ocicat",
      "Oriental Shorthair", "Savannah",
      "Australian Mist", "British Shorthair",
-     "Cyprus", "Russian Black"]
+     "Munchkin", "Russian Black"]
     end
 
     def breed_name
@@ -79,7 +79,8 @@ User.create([
       10.times do |iteration|
       Breed.create({name: breed_name,
                     retired: false,
-                    description: Faker::Lorem.sentences(2)})
+                    description: Faker::Lorem.sentences(2),
+                    image_path: nil})
       end
     end
   end
@@ -132,6 +133,10 @@ class CatMaker
   ]
   end
 
+  def random_cat_pic
+    Dir["app/assets/images/individuals/*.jpg"].sample.split("/").last
+  end
+
   def run
     40.times do |iteration|
       Breed.all.sample.cats.create({
@@ -139,7 +144,7 @@ class CatMaker
                 price: cat_price,
                 retired: false,
                 description: Faker::Lorem.sentences(2),
-                image_path: nil
+                image_path: random_cat_pic
                 })
     end
   end
@@ -159,7 +164,9 @@ CatMaker.new.run
     users_minus_dj.sample.orders.all.sample.order_cats
   end
 
+
   35.times do |iteration|
     random_order_cat.create({ cat_id: random_cat,
-                              quantity: random_quantity})
+                              quantity: random_quantity
+                            })
   end
