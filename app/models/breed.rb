@@ -12,7 +12,7 @@ class Breed < ActiveRecord::Base
   end
 
   def default_pic
-    self.image_path = "sabertoothy.jpg"
+    self.image_path = "#{name.gsub(" ", "_").downcase}.jpg"
   end
 
   def availability
