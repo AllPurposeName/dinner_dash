@@ -49,8 +49,9 @@ RSpec.describe Cat, type: :model do
       end
 
       it "that must be displayed as a valid decimal numeric value" do
+        @monifier = Monifier.new
         cat1 = create(:cat, price: "1000")
-        expect(cat1.monify).to eq("$10.00")
+        expect(@monifier.monify(cat1.price)).to eq("$10.00")
       end
     end
 

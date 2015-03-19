@@ -4,6 +4,7 @@ describe "authenticated user" do
   end
 
   it "gains items in cart when clicking the 'add to cart' button" do
+    @monifier = Monifier.new
     cat = create(:cat)
     user = User.create(role: 0, username: "guy", password: "pass", full_name: "DJ G", email: "example@example.com",)
     visit login_path
@@ -12,7 +13,7 @@ describe "authenticated user" do
     click_link_or_button("log in")
     visit cat_path(cat.id)
     click_link_or_button("add to cart")
-    expect(page).to have_content(cat.price)
+    expect(page).to have_content(@monifier.monify(cat.price))
     expect(page).to have_content("cart")
   end
 

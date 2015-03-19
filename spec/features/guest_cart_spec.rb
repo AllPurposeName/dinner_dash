@@ -18,13 +18,14 @@ describe "guest can use a cart" do
   end
 
   it "displays multiple cats" do
+    @monifier = Monifier.new
     kitty = create(:cat, name: "kitty")
     visit "/cats/#{kitty.id}"
     click_link_or_button("add to cart")
     visit "/cats/#{kitty.id}"
     click_link_or_button("add to cart")
 
-    expect(page).to have_content(kitty.price * 2)
+    expect(page).to have_content(@monifier.monify(kitty.price * 2))
   end
 
   xit "destroys a cat with remove from cart button" do
