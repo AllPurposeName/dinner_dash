@@ -12,7 +12,7 @@ describe "authenticated user" do
     click_link_or_button("log in")
     visit cat_path(cat.id)
     click_link_or_button("add to cart")
-    expect(page).to have_content(cat.price)
+    expect(page).to have_content(cat.monify)
     expect(page).to have_content("cart")
   end
 

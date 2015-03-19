@@ -116,14 +116,27 @@ class CatMaker
     common = [10, 12, 15,].sample
     uncommon = [20, 25, 30, 42].sample
     rare = [100, 150, 125].sample
+  end
 
+  def cat_price
+    ((1..50).to_a.sample.to_s + cents).to_i
+  end
+
+  def cat_description
+  [ "description one",
+    "description one",
+    "description one",
+    "description one",
+    "description one",
+    "description one",
+  ]
   end
 
   def run
     40.times do |iteration|
       Breed.all.sample.cats.create({
                 name: cat_full_name,
-                price: ((1..50).to_a.sample.to_s + cents).to_i,
+                price: cat_price,
                 retired: false,
                 description: Faker::Lorem.sentences(2),
                 image_path: nil
