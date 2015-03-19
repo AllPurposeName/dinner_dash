@@ -1,4 +1,4 @@
-<table>
+<table class="table table-hover">
 <tr>
   <th>Name &nbsp; &nbsp; &nbsp;</th>
   <th>Description</th>
@@ -11,9 +11,9 @@
   <tr>
     <td><%= cat[0].name %></td>
     <td><%= cat[0].description %></td>
-    <td><%= cat[0].price %></td>
+    <td><%= @monifier.monify(cat[0].price) %></td>
     <td><%= cat[1]%></td>
-    <td><%= cat[1] * cat[0].price %></td>
+    <td><%= @monifier.monify(cat[1] * cat[0].price) %></td>
   </tr>
 <% end %>
 <tr>
@@ -21,7 +21,7 @@
   <td> <%=  %> </td>
   <td> <%=  %> </td>
   <td> <%=  %> </td>
-  <td> <%= @cart.total_price %> </td>
+  <td> <%= @monifier.monify(@cart.total_price) %> </td>
 </tr>
 </table>
 

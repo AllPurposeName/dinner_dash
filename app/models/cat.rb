@@ -26,7 +26,4 @@ class Cat < ActiveRecord::Base
     Order.find(order_id).order_cats.find_by(cat_id: id).quantity
   end
 
-  def monify
-    price.to_s.insert(-3, ".").insert(0,"$")
-  end
 end

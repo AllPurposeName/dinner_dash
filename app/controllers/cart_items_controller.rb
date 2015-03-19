@@ -3,6 +3,7 @@ class CartItemsController < ApplicationController
   def show
     if @cart.cats_and_quantity
       @cart
+      @monifier = Monifier.new
       render :show
     else
       flash[:emptycart] = "You're cart is empty, fill it with some kittens plz"
