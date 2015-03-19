@@ -1,5 +1,9 @@
-#main-container {
-  margin-top: 200px;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.container#main-container {
+  margin-top: 100px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 50px;
@@ -19,10 +23,12 @@
   font-family: 'Comfortaa', Arial, serif; font-weight: 400;
 }
 
-#logo-home h1 {
-  font_size: 77px;
-}
 
 h1 {
-  font_size: 77px;
+  font-size: 42px;
+}
+
+h1, .h1  #logo-home {
+  font-size: 42px;
+  text-align: center;
 }

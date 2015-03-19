@@ -1,7 +1,11 @@
 <%= image_tag("logo.png", class: "img-responsive center-block" ) %>
-<h1 id="logo-home">CATATOUILLE</h1>
 
-<h1>ready right meow</h1>
+
+<div>
+  <h1 class="center-block">CATATOUILLE</h1>
+</div>
+
+  <h1>ready right meow</h1>
 
 <% @cats.each do |cat| %>
   <%= link_to "cat_#{cat.name}", "cats/#{cat.id}" %>
