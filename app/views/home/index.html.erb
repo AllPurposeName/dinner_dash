@@ -1,13 +1,13 @@
 <h1>ready right meow</h1>
 
 <% @cats.each do |cat| %>
-  <%= link_to "cat_#{cat.name}", "cats/#{cat.id}" %>
+  <%= link_to "#{cat.name}", "cats/#{cat.id}" %>
   </br>
 <% end %>
 
 <h1>need a breed?</h1>
 
 <% @breeds.each do |breed| %>
-  <%= link_to "breed_#{breed.name}", "breeds/#{breed.name.downcase}"%>
+  <%= link_to "#{breed.name}", "breeds/#{breed.name.downcase}"%>
   </br>
 <% end %>
