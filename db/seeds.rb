@@ -56,7 +56,7 @@ User.create([
 
   users_minus_dj.each do |user|
     5.times do |iteration|
-      user.orders.create({ status: [(0..3)].sample })
+      user.orders.create({ status: (0..3).to_a.sample })
     end
   end
 
@@ -116,7 +116,7 @@ class CatMaker
     common = [10, 12, 15,].sample
     uncommon = [20, 25, 30, 42].sample
     rare = [100, 150, 125].sample
-    
+
   end
 
   def run
