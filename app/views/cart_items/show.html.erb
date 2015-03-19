@@ -14,6 +14,7 @@
     <td><%= cat[0].price %></td>
     <td><%= cat[1]%></td>
     <td><%= cat[1] * cat[0].price %></td>
+    <td><%= button_to "plus-#{cat[0].id}", increment_cart_items_path(id: cat[0].id), method: :patch %>
   </tr>
 <% end %>
 <tr>

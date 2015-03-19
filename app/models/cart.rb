@@ -29,8 +29,12 @@ attr_reader :contents, :cats_and_quantity, :total_price
   private
 
   def update
-    set_cats_and_quantity
-    sum_price
+    if !@contents.any? do |content|
+      content[0].empty?
+    end
+      set_cats_and_quantity
+      sum_price
+    end
   end
 
   def set_cats_and_quantity
