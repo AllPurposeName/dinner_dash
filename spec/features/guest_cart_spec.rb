@@ -23,8 +23,8 @@ describe "guest can use a cart" do
     click_link_or_button("add to cart")
     visit "/cats/#{kitty.id}"
     click_link_or_button("add to cart")
-
-    expect(page).to have_content(kitty.price * 2)
+    kitty.price = (kitty.price * 2)
+    expect(page).to have_content(kitty.monify)
   end
 
 

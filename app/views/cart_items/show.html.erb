@@ -15,27 +15,19 @@
     <td><%= cat[0].name %></td>
     <td><%= cat[0].description %></td>
     <td><%= cat[0].monify %></td>
-    <td><%= link_to "", decrement_cart_items_path(id: cat[0].id), method: :put, class: "glyphicon glyphicon-minus", id: "remove-#{cat[0].id}" %></td>
+    <td><%= link_to "", decrement_cart_items_path(id: cat[0].id), method: :put, class: "glyphicon glyphicon-minus", id: "minus-#{cat[0].id}" %></td>
     <td><%= cat[1]%></td>
-    <td><%= link_to "", increment_cart_items_path(id: cat[0].id), method: :patch, class: "glyphicon glyphicon-plus", id: "remove-#{cat[0].id}" %></td>
+    <td><%= link_to "", increment_cart_items_path(id: cat[0].id), method: :patch, class: "glyphicon glyphicon-plus", id: "plus-#{cat[0].id}" %></td>
     <td><% cat[0].price = (cat[1] * cat[0].price) %>
-        <%= cat[0].monify%>
+      <%= cat[0].monify%>
         </td>
     <td><%= link_to "", cart_items_path(id: cat[0].id), method: :delete, class: "glyphicon glyphicon-remove", id: "remove-#{cat[0].id}"%></td>
   </tr>
 <% end %>
-<tr>
-  <td> <%=  %> </td>
-  <td> <%=  %> </td>
-  <td> <%=  %> </td>
-  <td> <%=  %> </td>
-  <td> <%=  %> </td>
-  <td> <%=  %> </td>
-  <td> <%= @cart.total_monify %> </td>
-</tr>
 </table>
+  <h3 id="order-title"> Order subtotal: <%= @cart.total_monify %> </h3>
 
 <% if @cart.cats_and_quantity != [] %>
-  <%= button_to "checkout", order_cats_path %>
+  <%= button_to "checkout", order_cats_path, id: "order-title"%>
 <% end %>
-<%= button_to "continue", breeds_path, method: :get %>
+<%= button_to "continue", breeds_path, method: :get, id: "order-title" %>
