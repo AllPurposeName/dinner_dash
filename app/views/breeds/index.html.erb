@@ -1,6 +1,6 @@
 <div class="list">
   <h2>BREEDS</h2>
-  
+
   <% @breeds.each do |breed| %>
     <%= link_to "#{breed.name}", breed_path(name: breed.name) %>
     <br>

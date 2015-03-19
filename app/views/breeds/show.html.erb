@@ -8,10 +8,11 @@
 
   <h3 id="status"> <%= @breed.availability %> </h3>
 
-  <ul>
+  <div class="list">
     <% @cats.each do |cat| %>
       <%= link_to "cat_#{cat.name}", cat_path(cat.id) %>
     <% end %>
-  </ul>
+    <br>
+  </div>
 
 </div>
