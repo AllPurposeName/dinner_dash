@@ -9,7 +9,7 @@
 
 
 <h3 id="status"> <%= @cat.availability %> </h3>
-
+<% if @cat.retired? == false %>
 <%= button_to "add to cart", cart_items_path(id: @cat.id) %>
-
+<% end %>
 </div>
