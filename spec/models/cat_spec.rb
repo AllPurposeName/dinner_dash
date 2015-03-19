@@ -60,7 +60,7 @@ RSpec.describe Cat, type: :model do
       # end
 
       it "is default if " do
-        cat = Cat.create(name: "cat") 
+        cat = Cat.create(name: "cat")
         expect(cat.image_path).to eq("cat.jpg")
       end
     end
