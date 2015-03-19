@@ -3,6 +3,7 @@ class Admin::OrdersController < ApplicationController
   def index
     @orders = Order.all
     @statuses = @orders.map(&:status).uniq
+    @statuses.unshift("all")
     respond_with @orders
   end
 end
