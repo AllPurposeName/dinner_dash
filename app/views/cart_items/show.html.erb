@@ -14,7 +14,9 @@
     <td><%= cat[0].price %></td>
     <td><%= cat[1]%></td>
     <td><%= cat[1] * cat[0].price %></td>
-    <td><%= button_to "plus-#{cat[0].id}", increment_cart_items_path(id: cat[0].id), method: :patch %>
+    <td><%= button_to "plus-#{cat[0].id}", increment_cart_items_path(id: cat[0].id), method: :patch %></td>
+    <td><%= button_to "minus-#{cat[0].id}", decrement_cart_items_path(id: cat[0].id), method: :put %></td>
+    <td><%= button_to "remove-#{cat[0].id}", cart_items_path(id: cat[0].id), method: :delete %></td>
   </tr>
 <% end %>
 <tr>
