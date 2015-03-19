@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :inventory, only: [:index]
     resources :breeds, except: [:index]
     resources :cats, except: [:index]
+    put '/cats/js/:id', to: 'cats#retired_update'
     resources :orders, only: [:index, :update]
   end
 end

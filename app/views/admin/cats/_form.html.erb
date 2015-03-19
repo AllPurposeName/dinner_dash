@@ -1,3 +1,4 @@
+<h1 id="status-area"></h1>
 <%= form_for([:admin, @cat]) do |f| %>
   <%= f.label :name, "edit name" %>
   <%= f.text_field :name %>
@@ -16,7 +17,8 @@
 
   <%= "Retired status for #{@cat.name.capitalize}:" %>
   <%= f.label :retired, "edit retired" %>
-  <%= f.text_field :retired %>
-
+  <div data-cat="<%=@cat.id %>">
+  <%= select("cat_", "retire_updater", [@cat.retired?, true, false].uniq, {include_blank: false}) %>
+  </div>
   <%= f.submit "Submit" %>
 <% end %>
