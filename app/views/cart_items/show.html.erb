@@ -11,9 +11,11 @@
   <tr>
     <td><%= cat[0].name %></td>
     <td><%= cat[0].description %></td>
-    <td><%= cat[0].price %></td>
+    <td><%= cat[0].monify %></td>
     <td><%= cat[1]%></td>
-    <td><%= cat[1] * cat[0].price %></td>
+    <td><% cat[0].price = (cat[1] * cat[0].price) %>
+        <%= cat[0].monify%>
+        </td>
     <td><%= button_to "plus-#{cat[0].id}", increment_cart_items_path(id: cat[0].id), method: :patch %>
   </tr>
 <% end %>
@@ -22,7 +24,7 @@
   <td> <%=  %> </td>
   <td> <%=  %> </td>
   <td> <%=  %> </td>
-  <td> <%= @cart.total_price %> </td>
+  <td> <%= @cart.total_monify %> </td>
 </tr>
 </table>
 
