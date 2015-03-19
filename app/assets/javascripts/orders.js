@@ -14,4 +14,22 @@ $(document).ready(function () {
     });
   });
 
+  $("[data-order]").on('change', function () {
+    var $this = $(this);
+    var orderID = $this.data("order");
+    var newStatus = $this.find("#order_" + orderID + "_change_status option:selected").text();
+    $.ajax({
+      method: "PUT", 
+      data: {
+        status: newStatus
+      },
+      url: '/admin/orders/' + orderID
+    }) 
+      .always(function(response) {
+        $this.data("status", newStatus).attr('data-status', newStatus);
+      })
+
+
+
+  })
 });
