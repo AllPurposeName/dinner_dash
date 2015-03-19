@@ -1,9 +1,12 @@
-<table>
+<h1>Your Cart</h1>
+<table class="table table-hover">
 <tr>
   <th>Name &nbsp; &nbsp; &nbsp;</th>
   <th>Description</th>
   <th>Price</th>
+  <th> </th>
   <th>Quantity</th>
+  <th> </th>
   <th>Total Price</th>
 </tr>
 
@@ -12,14 +15,18 @@
     <td><%= cat[0].name %></td>
     <td><%= cat[0].description %></td>
     <td><%= cat[0].monify %></td>
+    <td><%= link_to "", decrement_cart_items_path(id: cat[0].id), method: :put, class: "glyphicon glyphicon-minus", id: "remove-#{cat[0].id}" %></td>
     <td><%= cat[1]%></td>
+    <td><%= link_to "", increment_cart_items_path(id: cat[0].id), method: :patch, class: "glyphicon glyphicon-plus", id: "remove-#{cat[0].id}" %></td>
     <td><% cat[0].price = (cat[1] * cat[0].price) %>
         <%= cat[0].monify%>
         </td>
-    <td><%= button_to "plus-#{cat[0].id}", increment_cart_items_path(id: cat[0].id), method: :patch %>
+    <td><%= link_to "", cart_items_path(id: cat[0].id), method: :delete, class: "glyphicon glyphicon-remove", id: "remove-#{cat[0].id}"%></td>
   </tr>
 <% end %>
 <tr>
+  <td> <%=  %> </td>
+  <td> <%=  %> </td>
   <td> <%=  %> </td>
   <td> <%=  %> </td>
   <td> <%=  %> </td>
