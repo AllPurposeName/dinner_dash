@@ -1,21 +1,21 @@
 <%= render "filter" %>
 
 <table class="table table-hover">
-<tr>
-  <th>Order #</th>
-  <th>User</th>
-  <th>Status</th>
-  <th>Created At</th>
-  <th>Updated At</th>
-</tr>
-<% @orders.each do |order| %>
-  <% @current = order %>
-  <tr data-order="<%= order.id %>" class="orders" data-status="<%= order.status %>">
-      <td><%= order.id %></td>
+  <tr>
+    <th>Order</th>
+    <th>User</th>
+    <th>Status</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+  </tr>
+  <% @orders.each do |order| %>
+    <% @current = order %>
+    <tr data-order="<%= order.id %>" class="orders" data-status="<%= order.status %>">
+      <td> <%= link_to "Order #{order.id}", order_path(order.id) %></td>
       <td><%= order.user.username %></td>
       <td class="order_status"><%= render "status", locals: {order: @current} %></td>
       <td><%= order.created_at.strftime('%A, %d %b') %></td>
       <td><%= order.updated_at.strftime('%A, %d %b') %></td>
     </tr>
-<% end %>
+  <% end %>
 </table>
