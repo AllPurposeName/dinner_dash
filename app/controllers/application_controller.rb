@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
   def load_cart
     @cart ||= Cart.new(session[:cart_data])
   end
+
+  def not_found
+    flash[:notice] = "Just Kitten"
+    redirect_to root_path
+  end
+
   helper_method :load_cart
   before_action :load_cart
 end
