@@ -52,8 +52,6 @@ RSpec.describe Cat, type: :model do
         cat1 = create(:cat, price: "1000")
         expect(cat1.monify).to eq("$10.00")
       end
-
-
     end
 
 
@@ -84,7 +82,5 @@ RSpec.describe Cat, type: :model do
         expect(feline.breeds.first.name).to eq("sabertooth")
       end
     end
-
-
   end
 end
