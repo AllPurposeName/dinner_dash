@@ -13,8 +13,8 @@
       <td><%= order.id %></td>
       <td><%= order.user.username %></td>
       <td class="order_status"><%= order.status %></td>
-      <td><%= order.created_at.strftime('%A, %d %b') %></td>
-      <td><%= order.updated_at.strftime('%A, %d %b') %></td>
+      <td><%= order.created_at.strftime('%A, %d %b %Z') %></td>
+      <td><%= order.updated_at.strftime('%A, %d %b %Z') %></td>
     </tr>
 <% end %>
 </table>
