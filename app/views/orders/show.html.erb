@@ -15,9 +15,9 @@
       <tr>
         <td><%= link_to "#{cat.name}", cat_path(cat.id) %></td>
         <td><%= cat.description %></td>
-        <td><%= cat.price %></td>
+        <td><%= cat.monify %></td>
         <td><%= cat.quantity(@order.id) %></td>
-        <td><%= cat.quantity(@order.id) * cat.price %></td>
+        <td><%= cat.quantity(@order.id) * cat.monify %></td>
       </tr>
     <% end %>
     <tr>
@@ -25,6 +25,6 @@
       <td></td>
       <td></td>
       <td></td>
-      <td> <%= @order.total_price %> </td>
+      <td> <%= @order.total_monify %> </td>
     </tr>
   </table>

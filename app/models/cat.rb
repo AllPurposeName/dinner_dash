@@ -1,7 +1,7 @@
 class Cat < ActiveRecord::Base
   include ActiveModel::Validations
   include AttributeUpdater
-
+  include Monify
   has_many :cat_breeds
   has_many :breeds, through: :cat_breeds, inverse_of: :cats
   has_many :order_cats, inverse_of: :cat

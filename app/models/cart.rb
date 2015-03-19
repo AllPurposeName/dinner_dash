@@ -1,5 +1,6 @@
 class Cart
-attr_reader :contents, :cats_and_quantity, :total_price
+  include Monify
+  attr_reader :contents, :cats_and_quantity, :price
 
   def initialize(cart_data)
     @contents = cart_data || Hash.new(0)
@@ -12,6 +13,10 @@ attr_reader :contents, :cats_and_quantity, :total_price
   end
 
   def remove_from_cart(cat)
+    @contents.delete(cat)
+  end
+
+  def subtract_from_cart(cat)
     @contents[cat.to_s] ||= 1
     @contents[cat.to_s] -= 1
     if @contents[cat.to_s] == 0
@@ -24,6 +29,10 @@ attr_reader :contents, :cats_and_quantity, :total_price
       order.order_cats.create(cat_id: cat_and_quantity[0]["id"],
                               quantity: cat_and_quantity[1])
     end
+  end
+
+  def total_monify
+    monify
   end
 
   private
@@ -48,7 +57,7 @@ attr_reader :contents, :cats_and_quantity, :total_price
   end
 
   def sum_price
-    @total_price = cats_and_quantity.inject(0) do |sum, item|
+    @price = cats_and_quantity.inject(0) do |sum, item|
       sum += (item[0].price * item[1])
       sum
     end
