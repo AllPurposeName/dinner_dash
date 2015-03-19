@@ -1,3 +1,31 @@
+MUST BE COMPLETED:
+Admin Order View
+Current Order Status
+Admin Setting Order Status
+Remove item from cart with one button press
+Better seed
+Increment or Decrement cart items
+
+WANT COMPLETED:
+Images
+Stand-In photo
+Admin Retires an Item
+Retired Items can be viewed, but not added to cart
+
+BOTTOM OF LIST:
+Add/Remove Items from Categories
+Clear up waffle
+Order must belong to User
+Order must have cats
+
+
+----- Today March 18th, 2015 -----
+DONE : Admin Order Index page
+DONE : Changing Order Status to Enum role (edited)
+DONE : Create cats and breeds (edited)
+DONE : Link to each Cat from Order (edited)
+
+
 
 ################## MILESTONE ONE ##################
 

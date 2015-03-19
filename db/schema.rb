@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 20150318194915) do
     t.text     "name"
     t.integer  "price"
     t.boolean  "retired"
-    t.string   "image_path",  default: "cat.jpg"
+    t.string   "image_path"
     t.text     "description"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "order_cats", force: :cascade do |t|

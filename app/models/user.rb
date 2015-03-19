@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :orders
+  has_many :order_cats, through: :orders
   has_many :cats, through: :orders
 
   enum role: %w(default admin)
