@@ -47,6 +47,13 @@ RSpec.describe Cat, type: :model do
       it "that must not be blank" do
         expect(build(:cat, price: "")).to_not be_valid
       end
+
+      it "that must be displayed as a valid decimal numeric value" do
+        cat1 = create(:cat, price: "1000")
+        expect(cat1.monify).to eq("$10.00")
+      end
+
+
     end
 
 
@@ -60,7 +67,7 @@ RSpec.describe Cat, type: :model do
       # end
 
       it "is default if " do
-        cat = Cat.create(name: "cat") 
+        cat = Cat.create(name: "cat")
         expect(cat.image_path).to eq("cat.jpg")
       end
     end
