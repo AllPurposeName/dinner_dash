@@ -50,6 +50,21 @@ describe "guest can use a cart" do
     expect(current_path).to eq(login_path)
     expect(page).to have_content("log in first")
   end
+
+  context "has a button to" do
+    it "increment by one" do
+      bruno = create(:cat, name: "Bruno")
+      visit "/cats/#{bruno.id}"
+      click_link_or_button("add to cart")
+      expect(page).to have_content(1)
+      click_link_or_button("plus-#{bruno.id}")
+      expect(page).to have_content(2)
+    end
+    xit "decrement by one" do
+
+    end
+  end
+
   xit "directs Guest to their orders after they log in from cart#checkout" do
     # 052
     # As a Guest

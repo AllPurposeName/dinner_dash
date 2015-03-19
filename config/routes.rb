@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :show]
   resources :cart_items, only: [:create, :delete, :show]
   get '/cart_items', to: "cart_items#show", as: "cart"
+  patch '/cart_items', to: "cart_items#increment", as: "increment_cart_items"
 
   namespace :admin do
     resources :inventory, only: [:index]
