@@ -68,7 +68,7 @@ User.create([
      "Havanna Brown", "Ocicat",
      "Oriental Shorthair", "Savannah",
      "Australian Mist", "British Shorthair",
-     "Cyprus", "Russian Black"]
+     "Munchkin", "Russian Black"]
     end
 
     def breed_name
@@ -79,7 +79,8 @@ User.create([
       10.times do |iteration|
       Breed.create({name: breed_name,
                     retired: false,
-                    description: Faker::Lorem.sentences(2)})
+                    description: Faker::Lorem.sentences(2),
+                    image_path: "#{breed_name.parameterizeOA}.jpg"})
       end
     end
   end
