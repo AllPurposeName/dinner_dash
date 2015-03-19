@@ -24,5 +24,8 @@ class Cat < ActiveRecord::Base
   def quantity(order_id)
     Order.find(order_id).order_cats.find_by(cat_id: id).quantity
   end
-  
+
+  def change_retired
+    self.retired = !self.retired
+  end
 end

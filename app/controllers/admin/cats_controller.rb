@@ -1,4 +1,5 @@
 class Admin::CatsController < ApplicationController
+  respond_to :html, :json
   before_action :set_cat, only: [:show, :edit, :update]
 
   def show
@@ -27,6 +28,12 @@ class Admin::CatsController < ApplicationController
     @cat.update_some_attributes(params[:cat])
     flash[:editcomplete] = "#{@cat.name.humanize} edited!"
     redirect_to edit_admin_cat_path(@cat.to_param)
+  end
+
+  def retired_update
+    cat = Cat.find(params[:id])
+    cat.change_retired
+    render :json => "we good!", :status => :ok
   end
 
   def cat_params
