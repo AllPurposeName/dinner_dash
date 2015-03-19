@@ -18,3 +18,7 @@
 .font_test {
   font-family: 'Comfortaa', Arial, serif; font-weight: 400;
 }
+
+#order-title {
+  float: right;
+}
