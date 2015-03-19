@@ -2,8 +2,7 @@ class Admin::OrdersController < ApplicationController
   respond_to :html, :json
   def index
     @orders = Order.all.sort
-    @statuses = @orders.map(&:status).uniq
-    @statuses.unshift("all")
+    @statuses = ["all", "ordered", "paid", "completed", "cancelled"]
     respond_with @orders
   end
 
