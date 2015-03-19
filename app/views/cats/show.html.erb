@@ -9,6 +9,5 @@
 <h3 id="status"> <%= @cat.availability %> </h3>
 
 <%= button_to "add to cart", cart_items_path(id: @cat.id) %>
-<%= button_to "remove from cart", cart_items_path(id: @cat.id), method: :delete %>
 
 </div>

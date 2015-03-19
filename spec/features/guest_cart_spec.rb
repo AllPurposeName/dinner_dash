@@ -27,14 +27,6 @@ describe "guest can use a cart" do
     expect(page).to have_content(kitty.price * 2)
   end
 
-  xit "destroys a cat with remove from cart button" do
-    kitty = create(:cat, name: "kitty")
-    visit "/cats/#{kitty.id}"
-    click_link_or_button("add to cart")
-    visit "/cats/#{kitty.id}"
-    click_link_or_button("remove from cart")
-    expect(page).not_to have_content("kitty")
-  end
 
   xit "stops Guest from checking out without logging in" do
     # 050
@@ -60,9 +52,25 @@ describe "guest can use a cart" do
       click_link_or_button("plus-#{bruno.id}")
       expect(page).to have_content(2)
     end
-    xit "decrement by one" do
-
+    it "decrement by one" do
+      bronson = create(:cat, name: "Bronson")
+      visit "/cats/#{bronson.id}"
+      click_link_or_button("add to cart")
+      expect(page).to have_content(1)
+      click_link_or_button("plus-#{bronson.id}")
+      expect(page).to have_content(2)
+      click_link_or_button("minus-#{bronson.id}")
+      expect(page).to have_content(1)
     end
+    it "destroys a cat" do
+      kitty = create(:cat, name: "kitty")
+      visit "/cats/#{kitty.id}"
+      click_link_or_button("add to cart")
+      click_link_or_button("plus-#{kitty.id}")
+      click_link_or_button("remove-#{kitty.id}")
+      expect(page).not_to have_content("kitty")
+    end
+
   end
 
   xit "directs Guest to their orders after they log in from cart#checkout" do

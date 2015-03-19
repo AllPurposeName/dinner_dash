@@ -12,6 +12,10 @@ attr_reader :contents, :cats_and_quantity, :total_price
   end
 
   def remove_from_cart(cat)
+    @contents.delete(cat)
+  end
+
+  def subtract_from_cart(cat)
     @contents[cat.to_s] ||= 1
     @contents[cat.to_s] -= 1
     if @contents[cat.to_s] == 0

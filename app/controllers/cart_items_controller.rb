@@ -29,5 +29,11 @@ class CartItemsController < ApplicationController
     redirect_to cart_path(cart_contents: @cart.contents)
   end
 
+  def decrement
+    @cart.subtract_from_cart(params[:id])
+    session[:cart_data] = @cart.contents
+    redirect_to cart_path(cart_contents: @cart.contents)
+  end
+
 
 end
