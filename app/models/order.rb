@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, inverse_of: :orders
   has_many :order_cats
-  has_many :cats, through: :order_cats
+  has_many :cats, through: :order_cats, inverse_of: :orders
 
   enum status: %w(ordered paid completed cancelled)
 
